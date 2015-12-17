@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :wisatas
+  resources :wisatas do
+    resources :reviews, only: [:create, :destroy]
+  end
   devise_for :users
   resources :users, only: [:show, :index]
   root 'static_pages#home'
