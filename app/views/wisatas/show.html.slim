@@ -1,0 +1,37 @@
+p#notice= notice
+p
+  strong Nama:
+  = @wisata.nama
+p
+  strong Alamat:
+  = @wisata.alamat
+p
+  strong Deskripsi:
+  = @wisata.deskripsi
+p
+  strong Daerah:
+  = @wisata.daerah
+p
+  strong Kategori:
+  = @wisata.kategori
+p
+  strong Telp:
+  = @wisata.telp
+p
+  strong Foto:
+  = image_tag(@wisata.foto, class: "img-responsive")
+- if @wisata.reviews.any?
+    = render @reviews
+  
+= simple_form_for(@review, url: wisata_reviews_path(@wisata)) do |f|
+  = f.error_notification
+  = f.hidden_field :wisata_id, value: @wisata.id
+  .form-inputs
+    = f.input :content
+  .form-inputs
+    = f.input :foto
+  .form-actions
+    = f.button :submit
+    
+= link_to 'Edit', edit_wisata_path(@wisata)
+= link_to 'Back', wisatas_path
