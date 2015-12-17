@@ -1,0 +1,21 @@
+p#notice= notice
+p
+  strong Nama:
+  = @wisata.nama
+p
+  strong Alamat:
+  = @wisata.alamat
+p
+  strong Deskripsi:
+  = @wisata.deskripsi
+p
+  strong Daerah:
+  = @wisata.daerah
+p
+  strong Kategori:
+  = @wisata.kategori
+p
+  strong Telp:
+  = @wisata.telp
+= link_to 'Edit', edit_wisata_path(@wisata)
+= link_to 'Back', wisatas_path

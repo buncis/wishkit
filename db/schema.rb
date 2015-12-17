@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151217050259) do
+ActiveRecord::Schema.define(version: 20151217055305) do
+
+  create_table "daerahs", force: :cascade do |t|
+    t.string   "nama"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "kategoris", force: :cascade do |t|
+    t.string   "nama"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -33,5 +45,19 @@ ActiveRecord::Schema.define(version: 20151217050259) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "wisatas", force: :cascade do |t|
+    t.string   "nama"
+    t.text     "alamat"
+    t.text     "deskripsi"
+    t.integer  "daerah_id"
+    t.integer  "kategori_id"
+    t.string   "telp"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "wisatas", ["daerah_id"], name: "index_wisatas_on_daerah_id"
+  add_index "wisatas", ["kategori_id"], name: "index_wisatas_on_kategori_id"
 
 end
