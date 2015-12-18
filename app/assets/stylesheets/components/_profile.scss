@@ -1,0 +1,23 @@
+.panel-review-profile {
+  z-index: 10;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-bottom: 0px;
+  margin-top: 60px;
+  .panel-heading {
+    box-shadow: 0 0px 0px 0px rgba(39, 19, 19, 0.3), 0 -0px 0px 0px rgba(39, 19, 19, 0.3), -12px 0 10px -4px rgba(114, 114, 114, 0.29), 12px 0 10px -4px rgba(114, 114, 114, 0.29);
+    background-color: rgba(230, 230, 230, 0.74);
+    color: #3786C8;
+    border-radius: 0px;
+  }
+  .panel-body {
+    box-shadow: 0 0px 0px 0px rgba(114, 114, 114, 0.29), 0 -0px 0px 0px rgba(114, 114, 114, 0.29), -12px 0 10px -4px rgba(114, 114, 114, 0.29), 12px 0 10px -4px rgba(114, 114, 114, 0.29);
+  }
+  .panel-title {
+    text-align: center;
+    font-weight: 200;
+  }
+}
+.row-profile {
+  margin-top: 60px;
+}

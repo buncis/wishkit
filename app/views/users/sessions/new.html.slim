@@ -1,9 +1,29 @@
-h2 Log in
-= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .form-inputs
-    = f.input :email, required: false, autofocus: true
-    = f.input :password, required: false
-    = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
-  .form-actions
-    = f.button :submit, "Log in"
-= render "users/shared/links"
+.row
+    .col-md-6.col-md-offset-3
+      .panel.panel-default.panel-v1
+        .panel-heading
+          h4.panel-title Login User
+        .panel-body
+          =form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-horizontal") do |f| 
+            .form-group
+              label.col-sm-2.control-label for="inputEmail3"  Email
+              .col-sm-10
+                =f.email_field :email, :class => "form-control", :placeholder => "Email", :autofocus => true, required: true
+                br
+            .form-group
+              label.col-sm-2.control-label for="inputPassword3"  Password
+              .col-sm-10
+                 =f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Password", required: true
+            .form-group
+              .col-sm-offset-2.col-sm-10
+                -if devise_mapping.rememberable?
+                  .checkbox
+                    label
+                      =f.check_box :remember_me 
+                    | Remember me
+            .form-group
+              .col-sm-offset-2.col-sm-10
+                =f.submit "Log in", :class => "btn btn-default pull-right"
+              =render "users/shared/links"
+              
+

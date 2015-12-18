@@ -1,14 +1,80 @@
-nav.navbar.navbar-default
-  .container-fluid
+nav.navbar.navbar-fixed-top 
+  .container
     .navbar-header
-      button.navbar-toggle.collapsed data-toggle="collapse" data-target="#buncis" type="button" 
+      button.navbar-toggle.collapsed aria-expanded="false" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button" 
         span.sr-only Toggle navigation
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      .navbar-brand =link_to root_path
-        span.glyphicon.glyphicon-heart.pink
-    .collapse.navbar-collapse id="buncis"
+      ul.list-inline style="margin-bottom:0px;" 
+        li
+          =link_to root_path
+            =image_tag ('wishkit4.png'), :class => "img-responsive", :width => "100px", :style => "margin-top: 5px;"
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      ul.nav.navbar-nav.list-inline
+        li.dropdown.mega-dropdown
+          a.dropdown-toggle data-toggle="dropdown" href="#" 
+            | Telusur Jawa Barat
+            span.glyphicon.glyphicon-chevron-down.pull-right style=("margin-top: 5px; margin-left: 5px; font-size: 10px;") 
+          ul.dropdown-menu.mega-dropdown-menu.row style="width: 50%;"
+            li.col-sm-3
+              ul
+                li.dropdown-header 
+                li
+                  =link_to 'Bogor', '#'
+                li
+                  =link_to 'Bandung', '#'
+                li
+                  =link_to 'Bandung Barat', '#'
+                li
+                  =link_to 'Bekasi', '#'
+                li
+                  =link_to 'Depok', '#'
+                li
+                  =link_to 'Pangandaran', '#'
+                li
+                  =link_to 'Tasikmalaya', '#' 
+          
+            li.col-sm-3
+              ul
+                li.dropdown-header 
+                li
+                  =link_to 'Ciamis', '#'
+                li
+                  =link_to 'Cirebon', '#'
+                li
+                  =link_to 'Cianjur', '#'
+                li
+                  =link_to 'Garut', '#'
+                li
+                  =link_to 'Indramayu', '#'
+                li
+                  =link_to 'Subang', '#'
+                li
+                  =link_to 'Sukabumi', '#'
+            li.col-sm-3
+              ul
+                li.dropdown-header
+                li
+                  =link_to 'Sumedang', '#'
+                li
+                  =link_to 'Karawang', '#'
+                li
+                  =link_to 'Kuningan', '#'
+                li
+                  =link_to 'Majalengka', '#'
+                li
+                  =link_to 'Purwakarta', '#'
+                li
+                  =link_to 'Banjar', '#'
+                li
+                  =link_to 'Cimahi', '#'
+                
+      form.navbar-form.navbar-left role="search" 
+        .form-group
+          input.form-control placeholder="Search" type="text" 
+        button.btn.btn-info type="submit"  Temukan
+        
       ul.nav.navbar-nav.navbar-left
       ul.nav.navbar-nav.navbar-right
         -if user_signed_in?
@@ -26,6 +92,12 @@ nav.navbar.navbar-default
               li
                 = link_to 'sign out', destroy_user_session_path, method: :delete
         - else
+          li style='padding-top:15px;'
+            | Login as
           li
-            = link_to 'sign in', new_user_session_path
-            
+            =link_to 'User', new_user_session_path
+          li style='padding-top:15px;'
+            | or
+          li
+            =link_to 'Guide', '#'
+
