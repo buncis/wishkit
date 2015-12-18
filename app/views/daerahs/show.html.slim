@@ -1,0 +1,13 @@
+p#notice= notice
+p
+  strong Nama:
+  = @daerah.nama
+p
+  strong Foto:
+  = @daerah.foto
+  
+= link_to 'Edit', edit_daerah_path(@daerah)
+
+= link_to 'Back', daerahs_path
+
+= render 'wisatas/index'

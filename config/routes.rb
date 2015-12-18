@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :daerahs
+  resources :kategoris
   resources :wisatas do
     resources :reviews, only: [:create, :destroy]
   end
