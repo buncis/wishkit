@@ -15,6 +15,9 @@ gem 'devise', '~> 3.5', '>= 3.5.3'
 gem 'simple_form', '~> 3.2'
 gem 'carrierwave', '~> 0.10.0'
 
+gem 'geocoder', '~> 1.2', '>= 1.2.13'
+gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
+
 group :doc do
   gem 'sdoc', '~> 0.4.0'
 end
