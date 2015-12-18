@@ -10,16 +10,21 @@ p
   = @wisata.deskripsi
 p
   strong Daerah:
-  = @wisata.daerah
+  = @wisata.daerah.nama
 p
   strong Kategori:
-  = @wisata.kategori
+  = @wisata.kategori.nama
 p
   strong Telp:
   = @wisata.telp
 p
   strong Foto:
   = image_tag(@wisata.foto, class: "img-responsive")
+p
+  strong Peta:
+  
+
+    
 - if @wisata.reviews.any?
     = render @reviews
 - if user_signed_in?
@@ -35,3 +40,26 @@ p
     
 = link_to 'Edit', edit_wisata_path(@wisata)
 = link_to 'Back', wisatas_path
+
+div style=("width: 800px;") 
+  #map style=("width: 800px; height: 400px;") 
+
+javascript:
+  handler = Gmaps.build('Google');
+  handler.buildMap({
+      provider: {
+        disableDefaultUI: true
+        // pass in other Google Maps API options here
+      },
+      internal: {
+        id: 'map'
+      }
+    },
+    function(){
+      markers = handler.addMarkers([
+        { lat: #{@wisata.latitude}, lng: #{@wisata.longitude}}
+      ]);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    }
+  );

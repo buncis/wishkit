@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151218084316) do
+ActiveRecord::Schema.define(version: 20151218101107) do
 
   create_table "daerahs", force: :cascade do |t|
     t.string   "nama"
@@ -70,6 +70,9 @@ ActiveRecord::Schema.define(version: 20151218084316) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "foto"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "harga"
   end
 
   add_index "wisatas", ["daerah_id"], name: "index_wisatas_on_daerah_id"
