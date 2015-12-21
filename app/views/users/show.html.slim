@@ -1,2 +1,30 @@
-h2
-  | SHOW
+.container
+  .col-md-4
+    .row.row-profile
+      .col-md-5
+          = image_tag(@user.foto, class: "img-responsive")
+      .col-md-7
+        h5.nama
+          = @user.name
+        h6.username 
+          = @user.username
+        h6.like-comment
+          | My Review
+          br
+          span.glyphicon.glyphicon-comment.comment
+            span.badge 500
+    .row
+      .col-md-12
+        .panel.panel-default.panel-bio
+          .panel-body.panel-bd-home-bio
+            h6
+              | An dolor et anim. Ad aute incididunt nam enim o hic eram senserit. Nulla officia
+              | eiusmod.
+  .col-md-8
+    .panel.panel-default.panel-review.panel-review-profile
+      .panel-heading
+        h3.panel-title
+          | My Review
+      .panel-body
+        - @user.reviews.each do |review|
+          = render review

@@ -1,0 +1,8 @@
+.panel.panel-default.panel-review
+  .panel-heading
+    h3.panel-title
+      | Recent Review
+  .panel-body.panel-bd-home-review
+    - @reviews.reverse.each do |review|
+      = render review
+

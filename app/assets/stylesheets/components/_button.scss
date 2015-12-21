@@ -1,0 +1,21 @@
+.panel-kategori {
+  background: none;
+  box-shadow: none;
+  border: 0px;
+  .panel-body {
+    padding-bottom: 0px;
+    padding-top: 0px;
+    .btn-custom-kategori {
+      border-bottom: 1px solid rgba(90, 87, 87, 0.33);
+      background: #fae37e;
+      .btn {
+        padding: 10px 100px;
+        background: none;
+      }
+      &:hover,
+      &:focus {
+        background: #2daa92;
+      }
+    }
+  }
+}
