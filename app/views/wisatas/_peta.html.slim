@@ -1,0 +1,23 @@
+div 
+  #map style=("width: 600px; height: 400px;") 
+
+javascript:
+  handler = Gmaps.build('Google');
+  handler.buildMap({
+      provider: {
+        disableDefaultUI: true
+        // pass in other Google Maps API options here
+      },
+      internal: {
+        id: 'map'
+      }
+    },
+    function(){
+      markers = handler.addMarkers([
+        { lat: #{wisata.latitude}, lng: #{wisata.longitude}}
+      ]);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      handler.getMap().setZoom(15);
+    }
+  );

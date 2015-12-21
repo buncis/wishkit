@@ -1,3 +1,13 @@
-= link_to review.user.name, review.user
-= image_tag(review.foto, class: "img-responsive")
-= review.content
+.review-side style="margin-bottom:5px;border-bottom:1px solid rgba(56, 56, 56, 0.12);"
+  .row
+    .col-sm-2
+      = image_tag(review.user.foto, class: "img-responsive")   
+    .col-sm-10
+      =link_to review.user.name, review.user
+      .row
+        .col-sm-12
+          =review.content
+    .row
+      .col-sm-10.col-sm-offset-2
+        =image_tag(review.foto, class: "img-responsive", :style => "max-height:100px;") if review.foto?
+        =time_ago_in_words(review.created_at)

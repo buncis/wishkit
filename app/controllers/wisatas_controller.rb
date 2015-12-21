@@ -73,6 +73,6 @@ class WisatasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wisata_params
-      params.require(:wisata).permit(:nama, :alamat, :deskripsi, :daerah_id, :kategori_id, :telp, :foto)
+      params.require(:wisata).permit(:nama, :alamat, :deskripsi, :daerah_id, :kategori_id, :telp, :foto, :harga, :longitude, :latitude)
     end
 end

@@ -1,11 +1,7 @@
-
-
-
-
 .panel.panel-default.panel-popular
   .panel-heading
     h3.panel-title
-      | Popular Location
+      =link_to 'Popular Location', 'popular-location'
   .panel-body.panel-bd-home-popular
     .row.media
     
@@ -15,8 +11,11 @@
               =image_tag ("bosscha.jpg"), {:class => "img-responsive"} 
               <div class="overlay">
                  <h2>Obsevatorium Boscha</h2>
-                 <h4>Jalan Ahmad Yani</h4>
-                 <a class="info" href="#">link here</a>
+                 span.glyphicon.glyphicon-thumbs-up.like
+                  span.badge 1000
+                 <a class="info" href="#">Lihat</a>
+                 span.glyphicon.glyphicon-comment.comment
+                  span.badge 500
               </div>
           </div>
       </div>

@@ -1,0 +1,7 @@
+= simple_form_for(@kategori) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :nama
+    = f.input :foto
+  .form-actions
+    = f.button :submit

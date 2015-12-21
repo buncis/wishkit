@@ -1,37 +1,56 @@
-p#notice= notice
-p
-  strong Nama:
-  = @wisata.nama
-p
-  strong Alamat:
-  = @wisata.alamat
-p
-  strong Deskripsi:
-  = @wisata.deskripsi
-p
-  strong Daerah:
-  = @wisata.daerah
-p
-  strong Kategori:
-  = @wisata.kategori
-p
-  strong Telp:
-  = @wisata.telp
-p
-  strong Foto:
-  = image_tag(@wisata.foto, class: "img-responsive")
-- if @wisata.reviews.any?
-    = render @reviews
-  
-= simple_form_for(@review, url: wisata_reviews_path(@wisata)) do |f|
-  = f.error_notification
-  = f.hidden_field :wisata_id, value: @wisata.id
-  .form-inputs
-    = f.input :content
-  .form-inputs
-    = f.input :foto
-  .form-actions
-    = f.button :submit
-    
-= link_to 'Edit', edit_wisata_path(@wisata)
-= link_to 'Back', wisatas_path
+header.business-header style= 'background: url("#{@wisata.foto}") center center no-repeat scroll;'
+  .container
+    .row
+      .col-lg-12
+        .nama_rating
+          h1.tagline.-bottom =@wisata.nama
+          .ratingg
+            span.glyphicon.glyphicon-star style=("color:yellow; font-size:30px") 
+            span.glyphicon.glyphicon-star style=("color:yellow; font-size:30px") 
+            span.glyphicon.glyphicon-star style=("color:yellow; font-size:30px") 
+            span.glyphicon.glyphicon-star style=("color:yellow; font-size:30px") 
+            span.glyphicon.glyphicon-star style=("color:yellow; font-size:30px") 
+
+.container
+  hr
+  .row
+    .col-sm-7
+      center
+        = render 'wisatas/peta', wisata: @wisata
+      hr
+      address
+        p = @wisata.alamat
+        p Harga Tiket Masuk :
+           #{@wisata.harga}
+      address
+        p.glyphicon.glyphicon-earphone title="Phone"
+        |  #{@wisata.telp}
+        
+      hr
+      h2 Tempat Wisata #{@wisata.daerah.nama} lainnya
+      br
+      .row
+        - @wisata.daerah.wisatas.each do |wisata|
+          .col-xs-3
+            =image_tag (wisata.foto), {:class => "img-responsive"} 
+            p
+              =link_to wisata.nama, wisata
+        
+          
+    .col-sm-5
+      h2 Review #{@wisata.reviews.count}
+      - if user_signed_in?
+        = simple_form_for(@review, url: wisata_reviews_path(@wisata)) do |f|
+          = f.error_notification
+          = f.hidden_field :wisata_id, value: @wisata.id
+          .form-inputs
+            = f.input :content
+          .form-inputs
+            = f.input :foto
+          .form-actions
+            = f.button :submit
+        br    
+      - if @wisata.reviews.any?
+          = render @reviews
+
+hr

@@ -29,3 +29,5 @@ Kategori.create!(nama: "Hiburan")
 Kategori.create!(nama: "Budaya")
 Kategori.create!(nama: "Edukasi")
 Kategori.create!(nama: "Religi")
+
+User.create!(email: "buncis@buncis.com", password: "buncis10", password_confirmation: "buncis10")

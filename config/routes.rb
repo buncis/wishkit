@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :daerahs
+  resources :kategoris
   resources :wisatas do
     resources :reviews, only: [:create, :destroy]
   end
@@ -9,4 +11,5 @@ Rails.application.routes.draw do
   get 'about'   => 'static_pages#about'
   get 'privacy' => 'static_pages#privacy'
   get 'contact' => 'static_pages#contact'
+  get 'popular-location' => 'static_pages#popular_location'
 end

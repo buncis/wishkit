@@ -1,0 +1,19 @@
+p#notice= notice
+h1 Daftar Daerah
+table.table-responsive.table-hover
+  thead
+    tr
+      th Nama
+      th Foto
+      th colspan="3" Action
+  tbody
+    - @daerahs.each do |daerah|
+      tr
+        td = daerah.nama
+        td = daerah.foto
+        td = link_to 'Show', daerah
+        td = link_to 'Edit', edit_daerah_path(daerah)
+        td = link_to 'Destroy', daerah, method: :delete, data:   {confirm: 'Are you sure?'}  
+br
+
+= link_to 'New Daerah', new_daerah_path
