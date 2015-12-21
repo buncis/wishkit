@@ -5,7 +5,8 @@ p
 p
   strong Foto:
   = @daerah.foto
-  
+
+= link_to 'daerah', daerah_path(:kategori => 1)
 = link_to 'Edit', edit_daerah_path(@daerah)
 
 = link_to 'Back', daerahs_path

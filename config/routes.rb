@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :beritas
   resources :daerahs
   resources :kategoris
   resources :wisatas do

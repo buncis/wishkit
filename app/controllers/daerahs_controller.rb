@@ -10,7 +10,11 @@ class DaerahsController < ApplicationController
   # GET /daerahs/1
   # GET /daerahs/1.json
   def show
-    @wisatas = @daerah.wisatas
+    if params[:kategori_id]
+      @wisatas = @daerah.wisatas.find_by_kategori_id(params[:kategori_id])
+    else
+      @wisatas = @daerah.wisatas
+    end
   end
 
   # GET /daerahs/new
