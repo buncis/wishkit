@@ -1,7 +1,7 @@
 .container.container-custom1 style="margin-top:20px;" 
   .row
     .col-md-8
-      - @daerah.wisatas.each do |wisata|
+      - @wisatas.each do |wisata|
         = render wisata
     .col-md-4.text-center.text2
       = render 'wisatas/kategori'

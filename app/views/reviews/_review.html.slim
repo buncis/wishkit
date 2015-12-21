@@ -2,12 +2,17 @@
   .row
     .col-sm-2
       = image_tag(review.user.foto, class: "img-responsive")   
-    .col-sm-10
-      =link_to review.user.name, review.user
-      .row
-        .col-sm-12
-          =review.content
+    .col-sm-10 style="padding-left: 0px; margin-left:-10px;"
+      .col-sm-8 
+        =link_to review.user.name, review.user
+      .col-sm-4 style="text-align: right;"
+        =time_ago_in_words(review.created_at)
+      .col-sm-12
+        =link_to '@' +review.wisata.nama, review.wisata 
+        .row
+          .col-sm-12
+            =review.content
     .row
       .col-sm-10.col-sm-offset-2
         =image_tag(review.foto, class: "img-responsive", :style => "max-height:100px;") if review.foto?
-        =time_ago_in_words(review.created_at)
+        
