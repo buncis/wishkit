@@ -1,14 +1,7 @@
-p#notice= notice
-p
-  strong Nama:
-  = @daerah.nama
-p
-  strong Foto:
-  = @daerah.foto
-
-= link_to 'daerah', daerah_path(:kategori => 1)
-= link_to 'Edit', edit_daerah_path(@daerah)
-
-= link_to 'Back', daerahs_path
-
-= render 'wisatas/index'
+.container.container-custom1 style="margin-top:20px;" 
+  .row
+    .col-md-8
+      - @wisatas.each do |wisata|
+        = render wisata
+    .col-md-4.text-center.text2
+      = render 'wisatas/kategori'

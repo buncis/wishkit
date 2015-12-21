@@ -1,0 +1,16 @@
+      strong style="font-size:20px;" 
+        button.btn.btn-info aria-controls="collapseOne" aria-expanded="false" aria-haspopup="true" data-parent="#accordion" data-toggle="collapse" href="#collapseOne" role="button" type="btn" 
+          span.caret
+          | Pilihan Kategori
+      br
+      br
+      #accordion.panel-group aria-multiselectable="true" role="tablist" 
+        .panel.panel-default.panel-kategori
+          #collapseOne.panel-collapse.collapse aria-labelledby="headingOne" role="tabpanel" 
+            .panel-body
+              .row
+                - Kategori.all.each do |kategori|
+                  .col-md-12.btn-custom-kategori
+                    = button_to kategori.nama, daerah_path(:kategori_id => kategori.id), method: :get, class: "btn"
+                    = link_to kategori.nama, daerah_path(:kategori_id => kategori.id)
+      .col-md-12 style=("text-align: justify;")  Dolor te aut tamen nescius, ut aliqua et sunt, aut anim consequat tractavissent te pariatur sempiternum ut litteris. Eram qui admodum id tamen, esse ubi cupidatat ita sunt an varias quibusdam do familiaritatem in ut legam proident pariatur, illum nostrud ea ipsum summis a occaecat a pariatur ea possumus quo multos, tamen ad possumus sed culpa. Veniam reprehenderit occaecat nulla arbitror, varias o senserit de aliqua.

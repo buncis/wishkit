@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   get 'about'   => 'static_pages#about'
   get 'privacy' => 'static_pages#privacy'
   get 'contact' => 'static_pages#contact'
+  get 'popular-location' => 'static_pages#popular_location'
 end

@@ -1,0 +1,11 @@
+      .col-md-12.media
+        .col-xs-4.media-img
+            = image_tag(wisata.foto, class: "img-responsive")
+        .col-xs-8.media-konten
+          h2.title
+            = link_to wisata.nama, wisata
+          h5.alamat = wisata.alamat
+          h5.notelp = wisata.telp
+          h5.rating
+            span.glyphicon.glyphicon-star
+        .col-md-12.media-caption = wisata.deskripsi
