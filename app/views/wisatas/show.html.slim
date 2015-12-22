@@ -1,5 +1,5 @@
-header.business-header style= 'background: url("#{@wisata.foto}") center center no-repeat scroll;'
-  .container
+.container
+  header.business-header style= 'background: url("#{@wisata.foto}") center center no-repeat scroll;'
     .row
       .col-lg-12
         .nama_rating
@@ -14,7 +14,7 @@ header.business-header style= 'background: url("#{@wisata.foto}") center center 
 .container
   hr
   .row
-    .col-sm-7
+    .col-sm-7.tempat-lain
       center
         = render 'wisatas/peta', wisata: @wisata
       hr
@@ -37,8 +37,8 @@ header.business-header style= 'background: url("#{@wisata.foto}") center center 
               =link_to wisata.nama, wisata
         
           
-    .col-sm-5
-      h2 Review #{@wisata.reviews.count}
+    .col-sm-5.wisata-review
+      h2 Review  
       - if user_signed_in?
         = simple_form_for(@review, url: wisata_reviews_path(@wisata)) do |f|
           = f.error_notification

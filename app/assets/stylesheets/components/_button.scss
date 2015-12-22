@@ -6,15 +6,16 @@
     padding-bottom: 0px;
     padding-top: 0px;
     .btn-custom-kategori {
-      border-bottom: 1px solid rgba(90, 87, 87, 0.33);
-      background: #fae37e;
+      border-bottom: 1px solid rgba(90, 87, 87, 0.51);
+      background: #ffffff;
       .btn {
         padding: 10px 100px;
         background: none;
       }
       &:hover,
       &:focus {
-        background: #2daa92;
+        background: #6aafd8;
+        color: #ffffff;
       }
     }
   }

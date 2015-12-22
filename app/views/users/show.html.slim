@@ -6,13 +6,13 @@
       .col-md-7
         h5.nama
           = @user.name
-        h6.username 
-          = @user.username
+        h6.username
+          | @#{@user.username}
         h6.like-comment
-          | My Review
+          | Total Review Saya
           br
           span.glyphicon.glyphicon-comment.comment
-            span.badge 500
+            span.badge #{@user.reviews.count}
     .row
       .col-md-12
         .panel.panel-default.panel-bio
@@ -24,7 +24,7 @@
     .panel.panel-default.panel-review.panel-review-profile
       .panel-heading
         h3.panel-title
-          | My Review
+          | Review #{@user.name}
       .panel-body
-        - @user.reviews.each do |review|
+        - @user.reviews.reverse.each do |review|
           = render review

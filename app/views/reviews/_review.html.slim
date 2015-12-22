@@ -1,14 +1,16 @@
-.review-side style="margin-bottom:5px;border-bottom:1px solid rgba(56, 56, 56, 0.12);"
+
+.review-side
   .row
     .col-sm-2
       = image_tag(review.user.foto, class: "img-responsive")   
     .col-sm-10 style="padding-left: 0px; margin-left:-10px;"
-      .col-sm-8 
+      .col-sm-8.nama-periview 
         =link_to review.user.name, review.user
-      .col-sm-4 style="text-align: right;"
+      .col-sm-4.tgl-tweet 
         =time_ago_in_words(review.created_at)
-      .col-sm-12
-        =link_to '@' +review.wisata.nama, review.wisata 
+      .col-sm-12.nama-wisata-direview
+        .namawisata
+          =link_to '@' +review.wisata.nama, review.wisata 
         .row
           .col-sm-12
             =review.content

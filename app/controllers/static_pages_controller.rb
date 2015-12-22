@@ -16,6 +16,7 @@ class StaticPagesController < ApplicationController
   end
   
   def popular_location 
+    @wisatas = Wisata.all
   end
   
 end
