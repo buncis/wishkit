@@ -11,7 +11,7 @@ class DaerahsController < ApplicationController
   # GET /daerahs/1.json
   def show
     if params[:kategori_id]
-      @wisatas = @daerah.wisatas.find_by_kategori_id(params[:kategori_id])
+      @wisatas = @daerah.wisatas.where(kategori_id: params[:kategori_id])
     else
       @wisatas = @daerah.wisatas
     end

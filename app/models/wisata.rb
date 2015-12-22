@@ -4,4 +4,7 @@ class Wisata < ActiveRecord::Base
   has_many :reviews
   mount_uploader :foto, FotoUploader
   reverse_geocoded_by :latitude, :longitude
+
+  def popular
+  end
 end
