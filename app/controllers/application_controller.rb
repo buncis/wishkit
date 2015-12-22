@@ -1,4 +1,5 @@
 require 'user_sanitizer'
+require 'guide_sanitizer'
 
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
@@ -10,8 +11,8 @@ class ApplicationController < ActionController::Base
   def devise_parameter_sanitizer
     if resource_class == User
       User::ParameterSanitizer.new(User, :user, params)
-    # elsif resource_class == Guide
-    #   User::ParameterSanitizer.new(Guide, :guide, params)
+    elsif resource_class == Guide
+      Guide::ParameterSanitizer.new(Guide, :guide, params)
     # elsif resource_class == Admin
     #   Admin::ParameterSanitizer.new(Admin, :admin, params)
     else

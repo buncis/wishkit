@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admins
+  devise_for :guides
   resources :beritas
   resources :daerahs
   resources :kategoris
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
   end
   devise_for :users
   resources :users, only: [:show, :index]
+  resources :guides, only: [:show, :index]
   root 'static_pages#home'
   get 'help'    => 'static_pages#help'
   get 'about'   => 'static_pages#about'
