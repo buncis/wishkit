@@ -1,17 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  nama: MyString
-  alamat: MyText
-  deskripsi: MyText
-  daerah_id: 
-  kategori_id: 
-  telp: MyString
-
-two:
-  nama: MyString
-  alamat: MyText
-  deskripsi: MyText
-  daerah_id: 
-  kategori_id: 
-  telp: MyString
+transtudio:
+  nama: transtuid
+  alamat: bandung
+  deskripsi: tempat maen
+  daerah_id: 1
+  kategori_id: 1
+  telp: 021432599

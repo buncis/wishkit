@@ -4,6 +4,7 @@ class CreateReviews < ActiveRecord::Migration
       t.text :content
       t.references :user, index: true, foreign_key: true
       t.references :wisata, index: true, foreign_key: true
+      t.references :guide, index: true, foreign_key: true
 
       t.timestamps null: false
     end

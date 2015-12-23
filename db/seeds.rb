@@ -30,4 +30,6 @@ Kategori.create!(nama: "Budaya")
 Kategori.create!(nama: "Edukasi")
 Kategori.create!(nama: "Religi")
 
-User.create!(email: "buncis@buncis.com", password: "buncis10", password_confirmation: "buncis10")
+User.create!(nama: "buncis", email: "buncis@buncis.com", password: "buncis10", password_confirmation: "buncis10")
+Guide.create!(nama: "anto", email: "guide@buncis.com", password: "buncis10", password_confirmation: "buncis10")
+Wisata.create!(nama: "trans studio", daerah_id: 1, kategori_id: 1)

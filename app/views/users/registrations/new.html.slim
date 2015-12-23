@@ -9,7 +9,7 @@
                 .form-group
                   label.col-sm-5.control-label for="inputNama"  Nama
                   .col-sm-7
-                     =f.text_field :name, :class => "form-control", :autofocus => true, :required => true 
+                     =f.text_field :nama, :class => "form-control", :autofocus => true, :required => true 
                      br
                 .form-group
                   label.col-sm-5.control-label for="inputUsername"  Username
@@ -45,5 +45,3 @@
                     =f.submit "Sign up", :class => "btn btn-default pull-right"
                     .link-login
                       =render "users/shared/links"
-
-

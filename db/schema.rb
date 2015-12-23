@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151222085421) do
+ActiveRecord::Schema.define(version: 20151222100643) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -46,6 +46,17 @@ ActiveRecord::Schema.define(version: 20151222085421) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "guide_wisatas", force: :cascade do |t|
+    t.integer  "guide_id"
+    t.integer  "wisata_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "guide_wisatas", ["guide_id", "wisata_id"], name: "index_guide_wisatas_on_guide_id_and_wisata_id", unique: true
+  add_index "guide_wisatas", ["guide_id"], name: "index_guide_wisatas_on_guide_id"
+  add_index "guide_wisatas", ["wisata_id"], name: "index_guide_wisatas_on_wisata_id"
+
   create_table "guides", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -79,11 +90,13 @@ ActiveRecord::Schema.define(version: 20151222085421) do
     t.text     "content"
     t.integer  "user_id"
     t.integer  "wisata_id"
+    t.integer  "guide_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "foto"
   end
 
+  add_index "reviews", ["guide_id"], name: "index_reviews_on_guide_id"
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
   add_index "reviews", ["wisata_id"], name: "index_reviews_on_wisata_id"
 
@@ -98,7 +111,7 @@ ActiveRecord::Schema.define(version: 20151222085421) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "name"
+    t.string   "nama"
     t.string   "username"
     t.string   "foto"
     t.datetime "created_at",                          null: false

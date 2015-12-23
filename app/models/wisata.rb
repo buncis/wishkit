@@ -5,6 +5,8 @@ class Wisata < ActiveRecord::Base
   mount_uploader :foto, FotoUploader
   reverse_geocoded_by :latitude, :longitude
 
+  has_many :guide_wisatas, dependent: :destroy
+  has_many :guides, through: :guide_wisatas
   def popular
   end
 end

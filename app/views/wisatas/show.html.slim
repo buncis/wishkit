@@ -1,8 +1,12 @@
+h2 available guides
+-@wisata.guides.each do |guide|
+  = guide.nama
 header.business-header style= 'background: url("#{@wisata.foto}") center center no-repeat scroll;'
   .container
     .row
       .col-lg-12
-        .nama_rating
+        .nama_rating        
+          = render 'guide_form' if guide_signed_in?
           h1.tagline.-bottom =@wisata.nama
           .ratingg
             span.glyphicon.glyphicon-star style=("color:yellow; font-size:30px") 

@@ -1,0 +1,5 @@
+ #guide_form
+  - if current_guide.guiding?(@wisata)
+    = render 'unguide'
+  - else
+    = render 'guide'

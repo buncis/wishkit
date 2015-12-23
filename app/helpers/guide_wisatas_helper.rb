@@ -1,0 +1,2 @@
+module GuideWisatasHelper
+end

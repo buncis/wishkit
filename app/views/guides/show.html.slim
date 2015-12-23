@@ -1,3 +1,6 @@
+- @guide.wisatas.each do |wisata|
+  = wisata.nama
+  br
 .container
   .col-md-4
     .row.row-profile
@@ -19,10 +22,22 @@
               | An dolor et anim. Ad aute incididunt nam enim o hic eram senserit. Nulla officia
               | eiusmod.
   .col-md-8
-    <!-- .panel.panel-default.panel-review.panel-review-profile
+    .panel.panel-default.panel-review.panel-review-profile
       .panel-heading
         h3.panel-title
           | My Review
-      / .panel-body
-      /   - @guide.reviews.each do |review|
-      /     = render review -->
+      .panel-body
+        h2 Review #{@guide.reviews.count}
+        - if user_signed_in?
+          = simple_form_for(@review, url: wisata_reviews_path(@guide)) do |f|
+            = f.error_notification
+            = f.hidden_field :guide_id, value: @guide.id
+            .form-inputs
+              = f.input :content
+            .form-inputs
+              = f.input :foto
+            .form-actions
+              = f.button :submit
+          br    
+        - if @guide.reviews.any?
+            = render @reviews

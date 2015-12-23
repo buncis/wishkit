@@ -4,4 +4,21 @@ class Guide < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   mount_uploader :foto, FotoUploader
+
+  has_many :guide_wisatas, dependent: :destroy
+  has_many :wisatas, through: :guide_wisatas
+  has_many :reviews
+
+  def guide(wisata)
+    guide_wisatas.create(wisata_id: wisata.id)
+  end
+
+  def unguide(wisata)
+    guide_wisatas.find_by(wisata_id: wisata.id).destroy
+  end
+
+  def guiding?(wisata)
+    wisatas.include?(wisata)
+  end
+
 end
