@@ -1,12 +1,27 @@
-p#notice= notice
-p
-  strong Nama:
-  = @kategori.nama
-p
-  strong Foto:
-  = @kategori.foto
-= link_to 'Edit', edit_kategori_path(@kategori)
+.container.container-custom1 style="margin-top:20px;" 
+  .row
+    .col-md-8.page-kategori
+      .panel.panel-default
+        .panel-heading
+          .panel-title
+            | Daerah Wisata #{@kategori.nama}
+        = image_tag(@kategori.foto, class: "img-responsive")      
+      - @wisatas.each do |wisata|
+        = render wisata
+    .col-md-4.text-center.text2
+      = render 'wisatas/wisatakategori'
 
-= link_to 'Back', kategoris_path
 
-= render 'wisatas/index'
+
+/p#notice= notice
+/p
+/  strong Nama:
+/  = @kategori.nama
+/p
+/  strong Foto:
+/  = @kategori.foto
+/= link_to 'Edit', edit_kategori_path(@kategori)
+/
+/= link_to 'Back', kategoris_path
+/
+/= render 'wisatas/index'

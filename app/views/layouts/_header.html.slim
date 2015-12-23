@@ -9,36 +9,41 @@ nav.navbar.navbar-fixed-top
       ul.list-inline style="margin-bottom:0px;" 
         li
           =link_to root_path
-            =image_tag ('wishkit4.png'), :class => "img-responsive", :width => "100px", :style => "margin-top: 5px;"
+            =image_tag ('wishkit4.png'), :class => "img-responsive", :width => "150px", :style => "margin-top: 5px;"
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       ul.nav.navbar-nav.list-inline
         li.dropdown.mega-dropdown
           a.dropdown-toggle data-toggle="dropdown" href="#" 
             | Telusur Jawa Barat
             span.glyphicon.glyphicon-chevron-down.pull-right style=("margin-top: 5px; margin-left: 5px; font-size: 10px;") 
-          ul.dropdown-menu.mega-dropdown-menu.row style="width: 50%;"
+          ul.dropdown-menu.mega-dropdown-menu.row style="width: 50%; margin-left: 120px;"
             - Daerah.all.each do |daerah|
-                li.col-sm-3
+                li.col-sm-4
                   ul
                     li.dropdown-header
                     li
                       =link_to daerah.nama, daerah
+      ul.nav.navbar-nav.list-inline
+        li.dropdown
+          a.dropdown-toggle href="#" data-toggle="dropdown" role="button" 
+            | Kategori
+            span.glyphicon.glyphicon-chevron-down.pull-right style=("margin-top: 5px; margin-left: 5px; font-size: 10px;") 
+          ul.dropdown-menu.dropdown-kategori 
+            - Kategori.all.each do |kategori|
+              li.dropdown-header
+              li
+                = link_to kategori.nama, kategori
 
-      form.navbar-form.navbar-left role="search" 
-        .form-group
-          input.form-control placeholder="Search" type="text" 
-        button.btn.btn-info type="submit"  Temukan
+
         
       ul.nav.navbar-nav.navbar-left
       ul.nav.navbar-nav.navbar-right
-        li.dropdown
-          a.dropdown-toggle href="#" data-toggle="dropdown" role="button" 
-            | Daerah
-            span.caret
-          ul.dropdown-menu
-            - Daerah.all.each do |daerah|
-              li
-                = link_to daerah.nama, daerah
+      
+        form.navbar-form.navbar-left role="search" 
+          .form-group
+            input.form-control placeholder="Search" type="text" 
+          button.btn.btn-info type="submit"  Temukan
+          
         -if user_signed_in?
           li.dropdown
             a.dropdown-toggle href="#" data-toggle="dropdown" role="button" 
@@ -46,7 +51,7 @@ nav.navbar.navbar-fixed-top
               span.caret
             ul.dropdown-menu
               li
-                = link_to current_user.username, current_user
+                = link_to '@' +current_user.username, current_user
               li.divider role="separator"
               li
                 = link_to 'settings', edit_user_registration_path
@@ -71,7 +76,7 @@ nav.navbar.navbar-fixed-top
           li style='padding-top:15px;'
             | Login as
           li
-            =link_to 'User', new_user_session_path
+            =link_to 'Traveler', new_user_session_path
           li style='padding-top:15px;'
             | or
           li
