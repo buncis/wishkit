@@ -3,14 +3,12 @@
     .row
       .col-lg-12
         .nama_rating
-          h1.tagline.-bottom =@wisata.nama
+          h1.tagline.-bottom style=("margin-left:20px") =@wisata.nama
           .ratingg
-            span.glyphicon.glyphicon-star style=("color:yellow; font-size:30px") 
-            span.glyphicon.glyphicon-star style=("color:yellow; font-size:30px") 
-            span.glyphicon.glyphicon-star style=("color:yellow; font-size:30px") 
-            span.glyphicon.glyphicon-star style=("color:yellow; font-size:30px") 
-            span.glyphicon.glyphicon-star style=("color:yellow; font-size:30px") 
-
+            span.glyphicon.glyphicon-heart style=("color:white; font-size:30px;  margin-left:20px;")
+            span.badge style=("font-size:20px;")
+              | 76
+            
 .container
   hr
   .row
@@ -25,6 +23,22 @@
       address
         p.glyphicon.glyphicon-earphone title="Phone"
         |  #{@wisata.telp}
+      .row
+        h2
+          | Available Guide
+        .col-sm-3.text-center
+          =image_tag ('a.jpg'), {:class => "img-responsive"}
+          =link_to 'angga a.k', '#'
+        .col-sm-3.text-center
+          =image_tag ('mutiara.jpg'), {:class => "img-responsive"}
+          =link_to 'muti', '#'        
+        .col-sm-3.text-center
+          =image_tag ('andrey.jpg'), {:class => "img-responsive"}
+          =link_to 'andrey agassy', '#'        
+        .col-sm-3.text-center
+          =image_tag ('irvan.jpg'), {:class => "img-responsive"}
+          =link_to 'irvan', '#'
+        
         
       hr
       h2 Tempat Wisata #{@wisata.daerah.nama} lainnya

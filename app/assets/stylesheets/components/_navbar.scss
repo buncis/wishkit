@@ -17,6 +17,11 @@
 .btn-info {
   background-color: #c6222f;
   border-radius: 0px;
+  &:hover,
+  &:focus {
+    background: #fff;
+    color: #c6222f;
+  }
 }
 .navbar {
   font-weight: 800;
@@ -83,7 +88,7 @@
 .mega-dropdown-menu > li ul > li > a:hover,
 .mega-dropdown-menu > li ul > li > a:focus {
   text-decoration: none;
-  color: #f39c12;
+  color: #c6222f;
   background-color: #ffffff;
 }
 .mega-dropdown-menu .dropdown-header {
@@ -110,5 +115,11 @@
 .nav > li {
   .dropdown-kategori > li > a {
     color: #198bcb;
+    text-align: center;
+    &:hover,
+    &:focus {
+      color: #c6222f;
+      background-color: #ffffff;
+    }
   }
 }

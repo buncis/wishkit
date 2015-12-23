@@ -13,8 +13,14 @@ class DaerahsController < ApplicationController
 #    if params[:kategori_id]
 #      @wisatas = @daerah.wisatas.find_by_kategori_id(params[:kategori_id])
 #    else
-    @wisatas = @daerah.wisatas
+#    @wisatas = @daerah.wisatas
 #     end
+   if params[:kategori_id]
+      @wisatas = @daerah.wisatas.where(kategori_id: params[:kategori_id])
+    else
+      @wisatas = @daerah.wisatas
+    end    
+    
   end
 
   # GET /daerahs/new

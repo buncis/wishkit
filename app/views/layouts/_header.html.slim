@@ -16,7 +16,7 @@ nav.navbar.navbar-fixed-top
           a.dropdown-toggle data-toggle="dropdown" href="#" 
             | Telusur Jawa Barat
             span.glyphicon.glyphicon-chevron-down.pull-right style=("margin-top: 5px; margin-left: 5px; font-size: 10px;") 
-          ul.dropdown-menu.mega-dropdown-menu.row style="width: 50%;"
+          ul.dropdown-menu.mega-dropdown-menu.row style="width: 50%; margin-left: 120px;"
             - Daerah.all.each do |daerah|
                 li.col-sm-4
                   ul
@@ -27,9 +27,10 @@ nav.navbar.navbar-fixed-top
         li.dropdown
           a.dropdown-toggle href="#" data-toggle="dropdown" role="button" 
             | Kategori
-            span.caret
-          ul.dropdown-menu.dropdown-kategori
+            span.glyphicon.glyphicon-chevron-down.pull-right style=("margin-top: 5px; margin-left: 5px; font-size: 10px;") 
+          ul.dropdown-menu.dropdown-kategori 
             - Kategori.all.each do |kategori|
+              li.dropdown-header
               li
                 = link_to kategori.nama, kategori
 
@@ -61,7 +62,7 @@ nav.navbar.navbar-fixed-top
           li style='padding-top:15px;'
             | Login as
           li
-            =link_to 'User', new_user_session_path
+            =link_to 'Traveler', new_user_session_path
           li style='padding-top:15px;'
             | or
           li
