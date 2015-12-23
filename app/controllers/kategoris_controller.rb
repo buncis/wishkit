@@ -10,6 +10,7 @@ class KategorisController < ApplicationController
   # GET /kategoris/1
   # GET /kategoris/1.json
   def show
+    @wisatas = @kategori.wisatas
   end
 
   # GET /kategoris/new

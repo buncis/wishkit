@@ -4,56 +4,14 @@
       =link_to 'Popular Location', 'popular-location'
   .panel-body.panel-bd-home-popular
     .row.media
-    
-
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <div class="hovereffect">
-              =image_tag ("situciburuy.jpg"), {:class => "img-responsive"} 
-              <div class="overlay">
-                 <h2>Situ Ciburuy</h2>
-                 span.glyphicon.glyphicon-thumbs-up.like
-                  span.badge 112
-                 <a class="info" href="#">Lihat</a>
-                 span.glyphicon.glyphicon-comment
-                  span.badge 76
-              </div>
-          </div>
-      </div>
-
-
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <div class="hovereffect">
-              =image_tag ("rans-studio.jpg"), {:class => "img-responsive"} 
-              <div class="overlay">
-                 <h2>Hover effect 1</h2>
-                 <a class="info" href="#">link here</a>
-              </div>
-          </div>
-      </div>
-
-
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <div class="hovereffect">
-              =image_tag ("kebun-raya-bogor.jpg"), {:class => "img-responsive"} 
-              <div class="overlay">
-                 <h2>Hover effect 1</h2>
-                 <a class="info" href="#">link here</a>
-              </div>
-          </div>
-      </div>
-      
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <div class="hovereffect">
-              =image_tag ("kebun-raya-bogor.jpg"), {:class => "img-responsive"} 
-              <div class="overlay">
-                 <h2>Hover effect 1</h2>
-                 <a class="info" href="#">link here</a>
-              </div>
-          </div>
-      </div>
-
-
-
-
-      
-
+    -@wisatas.each do |wisata|
+      .col-lg-12.col-md-12.col-sm-12.col-xs-12
+        .hovereffect
+          = image_tag(wisata.foto, class: "img-responsive center-block", style: "width:300px; height:300px")
+          .overlay
+            h2 = wisata.nama
+            span.glyphicon.glyphicon-thumbs-up.like
+            span.badge 112
+            =link_to 'Lihat', wisata, class: "info"
+            span.glyphicon.glyphicon-comment
+            span.badge =wisata.reviews.count

@@ -1,3 +1,6 @@
+script src="//maps.google.com/maps/api/js?v=3.18&sensor=false&client=&key=&libraries=geometry&language=&hl=&region=" type='text/javascript'
+script src="//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js" type='text/javascript'
+
 .container
   header.business-header style= 'background: url("#{@wisata.foto}") center center no-repeat scroll;'
     .row
@@ -26,20 +29,11 @@
       .row
         h2
           | Available Guide
-        .col-sm-3.text-center
-          =image_tag ('a.jpg'), {:class => "img-responsive"}
-          =link_to 'angga a.k', '#'
-        .col-sm-3.text-center
-          =image_tag ('mutiara.jpg'), {:class => "img-responsive"}
-          =link_to 'muti', '#'        
-        .col-sm-3.text-center
-          =image_tag ('andrey.jpg'), {:class => "img-responsive"}
-          =link_to 'andrey agassy', '#'        
-        .col-sm-3.text-center
-          =image_tag ('irvan.jpg'), {:class => "img-responsive"}
-          =link_to 'irvan', '#'
-        
-        
+        = render 'guide_form' if guide_signed_in?
+        -@wisata.guides.each do |guide|
+          .col-sm-3.text-center
+            =image_tag (guide.foto), {:class => "img-responsive"}
+            =link_to guide.nama, guide
       hr
       h2 Tempat Wisata #{@wisata.daerah.nama} lainnya
       br
@@ -49,8 +43,6 @@
             =image_tag (wisata.foto), {:class => "img-responsive"} 
             p
               =link_to wisata.nama, wisata
-        
-          
     .col-sm-5.wisata-review
       h2 Review  
       - if user_signed_in?

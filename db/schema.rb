@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151222100643) do
+ActiveRecord::Schema.define(version: 20151223130027) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20151222100643) do
     t.string   "foto"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.text     "bio"
   end
 
   add_index "guides", ["email"], name: "index_guides_on_email", unique: true
@@ -90,10 +91,10 @@ ActiveRecord::Schema.define(version: 20151222100643) do
     t.text     "content"
     t.integer  "user_id"
     t.integer  "wisata_id"
-    t.integer  "guide_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "foto"
+    t.integer  "guide_id"
   end
 
   add_index "reviews", ["guide_id"], name: "index_reviews_on_guide_id"
@@ -116,6 +117,7 @@ ActiveRecord::Schema.define(version: 20151222100643) do
     t.string   "foto"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.text     "bio"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

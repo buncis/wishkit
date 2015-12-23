@@ -1,6 +1,3 @@
-- @guide.wisatas.each do |wisata|
-  = wisata.nama
-  br
 .container
   .col-md-4
     .row.row-profile
@@ -10,34 +7,21 @@
         h5.nama
           = @guide.nama
         h6.like-comment
-          | My Review
+          | Total Review Saya
           br
           span.glyphicon.glyphicon-comment.comment
-            span.badge 500
+            span.badge.badge-custom #{@guide.reviews.count}
     .row
       .col-md-12
         .panel.panel-default.panel-bio
           .panel-body.panel-bd-home-bio
             h6
-              | An dolor et anim. Ad aute incididunt nam enim o hic eram senserit. Nulla officia
-              | eiusmod.
+              = @guide.bio
   .col-md-8
     .panel.panel-default.panel-review.panel-review-profile
       .panel-heading
         h3.panel-title
-          | My Review
+          | Review #{@guide.nama}
       .panel-body
-        h2 Review #{@guide.reviews.count}
-        - if user_signed_in?
-          = simple_form_for(@review, url: wisata_reviews_path(@guide)) do |f|
-            = f.error_notification
-            = f.hidden_field :guide_id, value: @guide.id
-            .form-inputs
-              = f.input :content
-            .form-inputs
-              = f.input :foto
-            .form-actions
-              = f.button :submit
-          br    
-        - if @guide.reviews.any?
-            = render @reviews
+        - @guide.reviews.reverse.each do |review|
+          = render review

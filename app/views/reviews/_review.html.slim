@@ -5,7 +5,7 @@
       = image_tag(review.user.foto, class: "img-responsive")   
     .col-sm-10 style="padding-left: 0px; margin-left:-10px;"
       .col-sm-8.nama-periview 
-        =link_to review.user.name, review.user
+        =link_to review.user.nama, review.user
       .col-sm-4.tgl-tweet 
         =time_ago_in_words(review.created_at)
       .col-sm-12.nama-wisata-direview

@@ -18,12 +18,12 @@
         .panel.panel-default.panel-bio
           .panel-body.panel-bd-home-bio
             h6
-              | Aku Senang jalan-jalan, ajak aja gua pasti ikut gua . I'm easy going .
+              = @user.bio
   .col-md-8
     .panel.panel-default.panel-review.panel-review-profile
       .panel-heading
         h3.panel-title
-          | Review #{@user.name}
+          | Review #{@user.nama}
       .panel-body
         - @user.reviews.reverse.each do |review|
           = render review

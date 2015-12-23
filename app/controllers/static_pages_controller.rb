@@ -1,6 +1,8 @@
 class StaticPagesController < ApplicationController
   def home
     @reviews=Review.all
+    @beritas=Berita.all
+    @wisatas=Wisata.all
   end
 
   def help
@@ -14,9 +16,9 @@ class StaticPagesController < ApplicationController
 
   def contact
   end
-  
-  def popular_location 
+
+  def popular_location
     @wisatas = Wisata.all
   end
-  
+
 end
