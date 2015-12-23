@@ -1,24 +1,18 @@
-h2 available guides
--@wisata.guides.each do |guide|
-  = guide.nama
-header.business-header style= 'background: url("#{@wisata.foto}") center center no-repeat scroll;'
-  .container
+.container
+  header.business-header style= 'background: url("#{@wisata.foto}") center center no-repeat scroll;'
     .row
       .col-lg-12
-        .nama_rating        
-          = render 'guide_form' if guide_signed_in?
-          h1.tagline.-bottom =@wisata.nama
+        .nama_rating
+          h1.tagline.-bottom style=("margin-left:20px") =@wisata.nama
           .ratingg
-            span.glyphicon.glyphicon-star style=("color:yellow; font-size:30px") 
-            span.glyphicon.glyphicon-star style=("color:yellow; font-size:30px") 
-            span.glyphicon.glyphicon-star style=("color:yellow; font-size:30px") 
-            span.glyphicon.glyphicon-star style=("color:yellow; font-size:30px") 
-            span.glyphicon.glyphicon-star style=("color:yellow; font-size:30px") 
-
+            span.glyphicon.glyphicon-heart style=("color:white; font-size:30px;  margin-left:20px;")
+            span.badge style=("font-size:20px;")
+              | 76
+            
 .container
   hr
   .row
-    .col-sm-7
+    .col-sm-7.tempat-lain
       center
         = render 'wisatas/peta', wisata: @wisata
       hr
@@ -29,6 +23,22 @@ header.business-header style= 'background: url("#{@wisata.foto}") center center 
       address
         p.glyphicon.glyphicon-earphone title="Phone"
         |  #{@wisata.telp}
+      .row
+        h2
+          | Available Guide
+        .col-sm-3.text-center
+          =image_tag ('a.jpg'), {:class => "img-responsive"}
+          =link_to 'angga a.k', '#'
+        .col-sm-3.text-center
+          =image_tag ('mutiara.jpg'), {:class => "img-responsive"}
+          =link_to 'muti', '#'        
+        .col-sm-3.text-center
+          =image_tag ('andrey.jpg'), {:class => "img-responsive"}
+          =link_to 'andrey agassy', '#'        
+        .col-sm-3.text-center
+          =image_tag ('irvan.jpg'), {:class => "img-responsive"}
+          =link_to 'irvan', '#'
+        
         
       hr
       h2 Tempat Wisata #{@wisata.daerah.nama} lainnya
@@ -41,8 +51,8 @@ header.business-header style= 'background: url("#{@wisata.foto}") center center 
               =link_to wisata.nama, wisata
         
           
-    .col-sm-5
-      h2 Review #{@wisata.reviews.count}
+    .col-sm-5.wisata-review
+      h2 Review  
       - if user_signed_in?
         = simple_form_for(@review, url: wisata_reviews_path(@wisata)) do |f|
           = f.error_notification

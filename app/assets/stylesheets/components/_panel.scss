@@ -8,7 +8,7 @@
   margin-bottom: 0px;
   .panel-heading {
     background-color: #ffffff;
-    color: #3786C8;
+    color: #198bcb;
     border-radius: 0px;
     border-bottom: 0px;
   }
@@ -20,7 +20,7 @@
   }
   .panel-title {
     text-align: center;
-    font-weight: 200;
+    font-weight: 800;
   }
 }
 .panel-review {
@@ -31,7 +31,7 @@
   .panel-heading {
     box-shadow: 0 0px 0px 0px rgba(39, 19, 19, 0.3), 0 -0px 0px 0px rgba(39, 19, 19, 0.3), -12px 0 10px -4px rgba(114, 114, 114, 0.29), 12px 0 10px -4px rgba(114, 114, 114, 0.29);
     background-color: rgba(230, 230, 230, 0.74);
-    color: #3786C8;
+    color: #198bcb;
     border-radius: 0px;
   }
   .panel-body {
@@ -39,7 +39,7 @@
   }
   .panel-title {
     text-align: center;
-    font-weight: 200;
+    font-weight: 800;
   }
 }
 .panel-berita {
@@ -49,7 +49,7 @@
   margin-bottom: 0px;
   .panel-heading {
     background-color: #ffffff;
-    color: #3786C8;
+    color: #198bcb;
     border-radius: 0px;
     border: 0px;
   }
@@ -61,7 +61,7 @@
   }
   .panel-title {
     text-align: center;
-    font-weight: 200;
+    font-weight: 800;
   }
 }
 .panel-v1 {
@@ -69,17 +69,17 @@
   margin-top: 50px;
   margin-bottom: 185px;
   .btn {
-    background-color: #2ECC71;
+    background-color: #c6222f;
     color: white;
     font-weight: 800;
     &:hover,
     &:focus {
-      color: #2ECC71;
+      color: #c6222f;
       background-color: white;
     }
   }
   .panel-heading {
-    background-color: #f39c12;
+    background-color: #6AAFD8;
     .panel-title {
       font-weight: 800;
       color: white;

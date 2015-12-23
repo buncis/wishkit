@@ -6,25 +6,24 @@
       .col-md-7
         h5.nama
           = @user.nama
-        h6.username 
-          = @user.username
+        h6.username
+          | @#{@user.username}
         h6.like-comment
-          | My Review
+          | Total Review Saya
           br
           span.glyphicon.glyphicon-comment.comment
-            span.badge 500
+            span.badge.badge-custom #{@user.reviews.count}
     .row
       .col-md-12
         .panel.panel-default.panel-bio
           .panel-body.panel-bd-home-bio
             h6
-              | An dolor et anim. Ad aute incididunt nam enim o hic eram senserit. Nulla officia
-              | eiusmod.
+              | Aku Senang jalan-jalan, ajak aja gua pasti ikut gua . I'm easy going .
   .col-md-8
     .panel.panel-default.panel-review.panel-review-profile
       .panel-heading
         h3.panel-title
-          | My Review
+          | Review #{@user.name}
       .panel-body
-        - @user.reviews.each do |review|
+        - @user.reviews.reverse.each do |review|
           = render review
