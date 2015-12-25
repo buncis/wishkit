@@ -1,0 +1,33 @@
+.table-custom {
+  .btn {
+    background-color: #c6222f;
+    border-color: transparent;
+    color: white;
+    &:hover,
+    &:focus {
+      background: #fff;
+      color: #c6222f;
+      border-color: #c6222f;
+    }
+  }
+  thead {
+    background-color: #6AAFD8;
+    color: white;
+  }
+  h2 {
+    text-align: center;
+  }
+  table caption {
+    padding: .5em 0;
+  }
+  @media screen and (max-width: 767px) {
+    table caption {
+      border-bottom: 1px solid #ddd;
+    }
+  }
+  .p {
+    text-align: center;
+    padding-top: 140px;
+    font-size: 14px;
+  }
+}

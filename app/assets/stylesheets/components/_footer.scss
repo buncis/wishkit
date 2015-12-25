@@ -2,10 +2,12 @@
   padding-left: 0px;
   padding-right: 0px;
 }
-footer {
+.footer-style {
   background-color: #c6222f;
   margin-top: 0px;
   padding-top: 20px;
+  position: relative;
+  clear: both;
   a {
     color: #fff;
     &:hover,
@@ -24,4 +26,12 @@ hr {
   -moz-border-right-colors: none;
   -moz-border-bottom-colors: none;
   -moz-border-left-colors: none;
+}
+#wrap {
+  min-height: 100%;
+}
+#main {
+  overflow: auto;
+  padding-bottom: 150px;
+  /* this needs to be bigger than footer height*/
 }

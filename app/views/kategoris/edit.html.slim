@@ -1,5 +1,9 @@
-h1 Editing Kategori
-= render 'form'
-= link_to 'Show', @kategori
-
-= link_to 'Back', kategoris_path
+.row
+  .col-md-6.col-md-offset-3
+    .panel.panel-default.panel-v1
+      .panel-heading
+        h4.panel-title Edit Kategori
+      .panel-body
+        = render 'form'
+        = link_to 'Show ', @kategori
+        = link_to ' Back', kategoris_path

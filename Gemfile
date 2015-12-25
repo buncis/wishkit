@@ -15,6 +15,10 @@ gem 'devise', '~> 3.5', '>= 3.5.3'
 gem 'simple_form', '~> 3.2'
 gem 'carrierwave', '~> 0.10.0'
 
+gem 'will_paginate', '~> 3.0', '>= 3.0.7'
+gem 'betterlorem', '~> 0.1.2'
+gem 'bootstrap-will_paginate', '~> 0.0.10'
+
 gem 'geocoder', '~> 1.2', '>= 1.2.13'
 gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
 

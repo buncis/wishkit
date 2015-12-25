@@ -123,3 +123,11 @@
     }
   }
 }
+.dropdown-profile > li > a {
+  color: #198BCB;
+  &:hover,
+  &:focus {
+    color: #c6222f;
+    background-color: #ffffff;
+  }
+}

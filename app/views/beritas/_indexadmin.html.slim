@@ -1,0 +1,22 @@
+
+p#notice= notice
+h1 Listing Beritas
+table
+  thead
+    tr
+      th Title
+      th Content
+      th Foto
+      th colspan="3" 
+  tbody
+    - @beritas.each do |berita|
+      tr
+        td= berita.title
+        td= berita.content
+        td= berita.foto
+        td= link_to 'Show', berita
+        td= link_to 'Edit', edit_berita_path(berita)
+        td= link_to 'Destroy', berita, method: :delete, data:   {confirm: 'Are you sure?'  }
+br
+
+= link_to 'New Berita', new_berita_path
