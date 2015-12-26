@@ -49,3 +49,20 @@
               = image_tag(wisata.foto, class: "img-responsive", style: "width:300px; height:200px;")
               h4.text-center
                 =link_to wisata.nama, wisata
+  .col-md-8
+    .panel.panel-default.panel-review.panel-review-profile
+      .panel-heading
+        h3.panel-title
+          | Review #{@guide.nama}
+      .panel-body
+        - @guide.reviews.reverse.each do |review|
+          = render review
+
+  = link_to like_guide_path(@guide), method: :put, class: "btn btn-default btn-sm" do
+    span.glyphicon.glyphicon-chevron-up
+    | Upvote
+    | #{@guide.get_upvotes.size}
+  = link_to dislike_guide_path(@guide), method: :put, class: "btn btn-default btn-sm" do
+    span.glyphicon.glyphicon-chevron-down
+      | Downvote
+      | #{@guide.get_downvotes.size}

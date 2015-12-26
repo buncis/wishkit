@@ -7,6 +7,7 @@ class Wisata < ActiveRecord::Base
 
   has_many :guide_wisatas, dependent: :destroy
   has_many :guides, through: :guide_wisatas
-  def popular
-  end
+
+  acts_as_votable
+
 end

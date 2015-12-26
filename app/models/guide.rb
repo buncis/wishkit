@@ -9,6 +9,8 @@ class Guide < ActiveRecord::Base
   has_many :wisatas, through: :guide_wisatas
   has_many :reviews
 
+  acts_as_votable
+  
   def guide(wisata)
     guide_wisatas.create(wisata_id: wisata.id)
   end

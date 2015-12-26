@@ -57,3 +57,11 @@
           = render @reviews
 
 hr
+= link_to like_wisata_path(@wisata), method: :put, class: "btn btn-default btn-sm" do
+  span.glyphicon.glyphicon-chevron-up
+  | Upvote
+  | #{@wisata.get_upvotes.size}
+= link_to dislike_wisata_path(@wisata), method: :put, class: "btn btn-default btn-sm" do
+  span.glyphicon.glyphicon-chevron-down
+    | Downvote
+    | #{@wisata.get_downvotes.size}
