@@ -10,4 +10,9 @@ class Wisata < ActiveRecord::Base
 
   acts_as_votable
 
+  def self.search(search)
+    where("nama LIKE ?", "%#{search}%")
+    where("alamat LIKE ?", "%#{search}%")
+    where("deskripsi LIKE ?", "%#{search}%")
+  end
 end
