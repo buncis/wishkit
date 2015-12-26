@@ -10,8 +10,8 @@
             .overlay
               h2 
                 = wisata.nama
-              span.glyphicon.glyphicon-thumbs-up.like
-                span.badge 97
+              span.glyphicon.glyphicon-heart style="color:white;"
+                | #{wisata.get_upvotes.size}
               =link_to 'Lihat', wisata, class: "info"
-              span.glyphicon.glyphicon-comment
-                span.badge 63
+              span.glyphicon.glyphicon-comment.comment-v1
+                span.badge =wisata.reviews.count
