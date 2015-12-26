@@ -6,7 +6,7 @@
           .panel-title
             = @berita.title
         .panel-body
-          = image_tag(@berita.foto, class: "img-responsive")
+          = image_tag(@berita.foto, class: "img-responsive center-block" )
           p style="text-align:justify;"
             = simple_format(@berita.content)
               

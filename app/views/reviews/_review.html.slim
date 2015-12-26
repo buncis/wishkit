@@ -11,6 +11,8 @@
       .col-sm-12.nama-wisata-direview
         .namawisata
           =link_to '@' +review.wisata.nama, review.wisata if review.wisata
+        .namaguide
+          =link_to '@' +review.guide.nama, review.guide if review.guide
         .row
           .col-sm-12
             =review.content

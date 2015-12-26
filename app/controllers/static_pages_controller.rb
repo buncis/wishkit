@@ -2,7 +2,7 @@ class StaticPagesController < ApplicationController
   def home
     @reviews=Review.all
     @beritas=Berita.all
-    @wisatas=Wisata.all
+    @wisatas=Wisata.all.order(:cached_votes_total => :desc)
   end
 
   def help

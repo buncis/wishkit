@@ -4,7 +4,7 @@ class WisatasController < ApplicationController
   # GET /wisatas
   # GET /wisatas.json
   def index
-    @wisatas = Wisata.all
+    @wisatas = Wisata.all.order(:cached_votes_total => :desc)
   end
 
   # GET /wisatas/1
