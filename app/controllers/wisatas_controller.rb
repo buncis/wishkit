@@ -1,5 +1,5 @@
 class WisatasController < ApplicationController
-  before_action :set_wisata, only: [:show, :edit, :update, :destroy]
+  before_action :set_wisata, only: [:show, :edit, :update, :destroy, :like, :dislike]
 
   # GET /wisatas
   # GET /wisatas.json
@@ -14,6 +14,16 @@ class WisatasController < ApplicationController
     if user_signed_in?
       @review = current_user.reviews.build
     end
+  end
+
+  def like
+    @wisata.upvote_by current_user
+    redirect_to :back
+  end
+
+  def dislike
+    @wisata.downvote_by current_user
+    redirect_to :back
   end
 
   # GET /wisatas/new

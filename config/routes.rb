@@ -12,11 +12,19 @@ Rails.application.routes.draw do
   resources :daerahs
   resources :kategoris
   resources :wisatas do
+    member do
+      put "like", to: "wisatas#like"
+      put "dislike", to: "wisatas#dislike"
+    end
     resources :reviews, only: [:create, :destroy]
   end
   devise_for :users
   resources :users, only: [:show, :index]
   resources :guides, only: [:show, :index] do
+    member do
+      put "like", to: "guides#like"
+      put "dislike", to: "guides#dislike"
+    end
     resources :reviews, only: [:create, :destroy]
   end
   resources :guide_wisatas, only: [:create, :destroy]

@@ -1,5 +1,15 @@
 class GuidesController < ApplicationController
-  before_action :set_guide, only: [:show]
+  before_action :set_guide, only: [:show, :like, :dislike]
+
+  def like
+    @guide.upvote_by current_user
+    redirect_to :back
+  end
+
+  def dislike
+    @guide.downvote_by current_user
+    redirect_to :back
+  end
 
   def show
     @reviews = @guide.reviews

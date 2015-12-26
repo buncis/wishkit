@@ -25,3 +25,12 @@
       .panel-body
         - @guide.reviews.reverse.each do |review|
           = render review
+
+  = link_to like_guide_path(@guide), method: :put, class: "btn btn-default btn-sm" do
+    span.glyphicon.glyphicon-chevron-up
+    | Upvote
+    | #{@guide.get_upvotes.size}
+  = link_to dislike_guide_path(@guide), method: :put, class: "btn btn-default btn-sm" do
+    span.glyphicon.glyphicon-chevron-down
+      | Downvote
+      | #{@guide.get_downvotes.size}

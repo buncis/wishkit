@@ -18,6 +18,8 @@ gem 'carrierwave', '~> 0.10.0'
 gem 'geocoder', '~> 1.2', '>= 1.2.13'
 gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
 
+gem 'acts_as_votable', '~> 0.10.0'
+
 group :doc do
   gem 'sdoc', '~> 0.4.0'
 end
