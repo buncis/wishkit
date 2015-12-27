@@ -15,10 +15,10 @@
                 h6 style="font-style: italic; font-weight:700px;"
                   = @guide.bio
                 =link_to like_guide_path(@guide), method: :put do
-                  span.glyphicon.glyphicon-heart style="margin-right:5px;"
+                  span.icon-heart style="margin-right:5px; color: #C6222F;"
                     | #{@guide.get_upvotes.size}
                 =link_to dislike_guide_path(@guide), method: :put do
-                  span.glyphicon.glyphicon-heart-empty
+                  span.icon-heart-broken style="color: #C6222F;"
                     | #{@guide.get_downvotes.size}                
               .col-md-9.col-lg-9
                 table.table.table-user-information
@@ -64,6 +64,8 @@
               = f.input :content
             .form-inputs
               = f.input :foto
+            .form-inputs
+              =f.association :wisata, label_method: :nama, collection: @guide.wisatas
             .form-actions
               = f.button :submit, class: "btn btn-info "
         br

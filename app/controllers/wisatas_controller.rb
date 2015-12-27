@@ -1,5 +1,5 @@
 class WisatasController < ApplicationController
-  before_action :set_wisata, only: [:show, :edit, :update, :destroy, :like, :dislike]
+  before_action :set_wisata, only: [:show, :edit, :update, :destroy, :like, :dislike, :album]
 
   # GET /wisatas
   # GET /wisatas.json
@@ -10,7 +10,12 @@ class WisatasController < ApplicationController
       @wisatas = Wisata.all.order(:cached_votes_up => :desc)
     end
   end
-
+  
+  def album
+    @reviews = @wisata.reviews
+    
+  end
+  
   # GET /wisatas/1
   # GET /wisatas/1.json
   def show

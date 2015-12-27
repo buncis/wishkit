@@ -9,10 +9,11 @@
       .col-sm-4.tgl-tweet 
         =time_ago_in_words(review.created_at)
       .col-sm-12.nama-wisata-direview
-        .namawisata
+        span
           =link_to '@' +review.wisata.nama, review.wisata if review.wisata
-        .namaguide
-          =link_to '@' +review.guide.nama, review.guide if review.guide
+        span
+          =link_to ' @' +review.guide.nama, review.guide if review.guide
+        
         .row
           .col-sm-12
             =review.content

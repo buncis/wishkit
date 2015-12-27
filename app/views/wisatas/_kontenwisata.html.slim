@@ -7,8 +7,8 @@
           h5.alamat = wisata.alamat
           h5.notelp = wisata.telp
           h5.rating
-            span.glyphicon.glyphicon-heart style="color: #C6222F;"
+            span.icon-heart style="color: #C6222F;"
               | #{wisata.get_upvotes.size}
-            span.glyphicon.glyphicon-heart-empty style="color: #C6222F;"
+            span.icon-heart-broken style="color: #C6222F;"
               | #{wisata.get_downvotes.size}
         .col-md-12.media-caption = wisata.deskripsi

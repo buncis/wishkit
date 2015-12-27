@@ -6,10 +6,10 @@
           h1.tagline.-bottom style=("margin-left:20px") =@wisata.nama
           .ratingg
             = link_to like_wisata_path(@wisata), method: :put do
-              span.glyphicon.glyphicon-heart style="color: white; font-size:30px; margin-left: 20px;"
+              span.icon-heart style="color: white; font-size:30px; margin-left: 20px;"
                 | #{@wisata.get_upvotes.size}
             = link_to dislike_wisata_path(@wisata), method: :put do
-              span.glyphicon.glyphicon-heart-empty style="color: white; font-size:30px; margin-left: 20px;"
+              span.icon-heart-broken style="color: white; font-size:30px; margin-left: 20px;"
                 | #{@wisata.get_downvotes.size}
 
             
@@ -50,6 +50,16 @@
             p
               =link_to wisata.nama, wisata
     .col-sm-5.wisata-review
+    
+      .row
+        - @reviews[0..4].each do |review|
+          .col-md-4
+            .thumbnail
+              =image_tag(review.foto, class: "img-responsive", style: "height: 70px; width: 122px;")
+        .thumbnail
+          = link_to(image_tag('more'), album_wisata_path)
+    
+    
       h2 Review  
       - if user_signed_in?
         = simple_form_for(@review, url: wisata_reviews_path(@wisata)) do |f|
