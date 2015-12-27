@@ -4,7 +4,7 @@
       =link_to 'Popular Location', 'popular-location'
   .panel-body.panel-bd-home-popular
     .row.media
-    -@wisatas[0..5].each do |wisata|
+    -@wisatas[0..4].each do |wisata|
       .col-lg-12.col-md-12.col-sm-12.col-xs-12
         .hovereffect
           = image_tag(wisata.foto, class: "img-responsive center-block", style: "width:300px; height:200px")

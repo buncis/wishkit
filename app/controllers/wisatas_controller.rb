@@ -19,7 +19,7 @@ class WisatasController < ApplicationController
   # GET /wisatas/1
   # GET /wisatas/1.json
   def show
-    @reviews = @wisata.reviews
+    @reviews = @wisata.reviews.order('created_at DESC').page(params[:page]).per_page(10)
     if user_signed_in?
       @review = current_user.reviews.build
     end

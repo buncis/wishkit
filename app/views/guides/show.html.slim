@@ -74,5 +74,6 @@
           h3.panel-title
             | Review #{@guide.nama}
         .panel-body
-          - @guide.reviews.reverse.each do |review|
-            = render review
+          #reviews
+            = render @reviews
+          = will_paginate @reviews
