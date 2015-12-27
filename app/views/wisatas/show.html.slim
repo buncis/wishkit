@@ -58,6 +58,7 @@
             = f.button :submit, class: "btn btn-info"
         br    
       - if @wisata.reviews.any?
+        #reviews
           = render @reviews
-
+        = will_paginate @reviews
 hr

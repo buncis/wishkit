@@ -28,5 +28,6 @@
         h3.panel-title
           | Review #{@user.nama}
       .panel-body
-        - @user.reviews.reverse.each do |review|
-          = render review
+        #reviews
+          = render @reviews
+        = will_paginate @reviews

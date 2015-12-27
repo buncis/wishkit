@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    @reviews = @user.reviews.order('created_at DESC').page(params[:page]).per_page(10)
   end
 
   private

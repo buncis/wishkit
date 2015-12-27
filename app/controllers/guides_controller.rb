@@ -12,7 +12,7 @@ class GuidesController < ApplicationController
   end
 
   def show
-    @reviews = @guide.reviews
+    @reviews = @guide.reviews.order('created_at DESC').page(params[:page]).per_page(10)
     if user_signed_in?
       @review = current_user.reviews.build
     end
