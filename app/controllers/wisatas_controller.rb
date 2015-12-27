@@ -5,9 +5,9 @@ class WisatasController < ApplicationController
   # GET /wisatas.json
   def index
     if params[:search]
-      @wisatas = Wisata.search(params[:search]).order("created_at DESC").page(params[:page]).per_page(10)
+      @wisatas = Wisata.search(params[:search])
     else
-      @wisatas = Wisata.order('created_at DESC').page(params[:page]).per_page(10)
+      @wisatas = Wisata.all
     end
   end
 

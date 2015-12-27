@@ -3,6 +3,5 @@
     h3.panel-title
       | Recent Review
   .panel-body.panel-bd-home-review
-    - @reviews.reverse.each do |review|
-      = render review
-
+    #reviews
+      = render @reviews

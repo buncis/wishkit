@@ -24,3 +24,39 @@
     }
   }
 }
+.btn-berita {
+  background-color: #c6222f;
+  border-color: transparent;
+  color: white;
+  &:hover,
+  &:focus {
+    background: #fff;
+    color: #c6222f;
+    border-color: #c6222f;
+  }
+}
+.btn-guide {
+  background-color: #c6222f;
+  border-color: transparent;
+  color: white;
+  margin-left: 300px;
+  &:hover,
+  &:focus {
+    background: #fff;
+    color: #c6222f;
+    border-color: #c6222f;
+  }
+}
+.btn-unguide {
+  background-color: #6AAFD8;
+  border-color: transparent;
+  color: white;
+  margin-left: 300px;
+  margin-bottom: 10px;
+  &:hover,
+  &:focus {
+    background: #fff;
+    color: #6AAFD8;
+    border-color: #6AAFD8;
+  }
+}

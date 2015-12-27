@@ -1,36 +1,76 @@
-.container
-  .col-md-4
-    .row.row-profile
-      .col-md-5
-          = image_tag(@guide.foto, class: "img-responsive")
-      .col-md-7
-        h5.nama
-          = @guide.nama
-        h6.like-comment
-          | Total Review Saya
-          br
-          span.glyphicon.glyphicon-comment.comment
-            span.badge.badge-custom #{@guide.reviews.count}
-    .row
-      .col-md-12
-        .panel.panel-default.panel-bio
-          .panel-body.panel-bd-home-bio
-            h6
-              = @guide.bio
-  .col-md-8
-    .panel.panel-default.panel-review.panel-review-profile
-      .panel-heading
-        h3.panel-title
-          | Review #{@guide.nama}
-      .panel-body
-        - @guide.reviews.reverse.each do |review|
-          = render review
+.container.container-profile
+  h4.text-center
+    | Profile Guide
+  hr 
+  .row
+    .profile-guide
+      .col-md-5.toppad
+        .panel.panel-info.panel-guide-wisata
+          .panel-heading
+            h3.panel-title = @guide.nama
+          .panel-body
+            .row
+              .col-md-3.col-lg-3 align="center" 
+                =image_tag (@guide.foto), class: "img-circle img-responsive", alt: "User Pict"
+                h6 style="font-style: italic; font-weight:700px;"
+                  = @guide.bio
+                =link_to like_guide_path(@guide), method: :put do
+                  span.glyphicon.glyphicon-heart style="margin-right:5px;"
+                    | #{@guide.get_upvotes.size}
+                =link_to dislike_guide_path(@guide), method: :put do
+                  span.glyphicon.glyphicon-heart-empty
+                    | #{@guide.get_downvotes.size}                
+              .col-md-9.col-lg-9
+                table.table.table-user-information
+                  tbody
+                    tr
+                      td Email
+                      td = @guide.email
+                    tr
+                      td Registrasi
+                      td = @guide.created_at
+                    tr
+                      td Alamat
+                      td = @guide.alamat
 
-  = link_to like_guide_path(@guide), method: :put, class: "btn btn-default btn-sm" do
-    span.glyphicon.glyphicon-chevron-up
-    | Upvote
-    | #{@guide.get_upvotes.size}
-  = link_to dislike_guide_path(@guide), method: :put, class: "btn btn-default btn-sm" do
-    span.glyphicon.glyphicon-chevron-down
-      | Downvote
-      | #{@guide.get_downvotes.size}
+                    td Telepon
+                    td
+                      = @guide.telp
+                      br
+
+        
+        .row                   
+          .col-md-12 style="padding-left:15px; padding-right:15px;"
+            .panel.panel-default.panel-guide-wisata
+              .panel-heading
+                .panel-title
+                  | Lokasi Wisata Guide
+              .panel-body
+                - @guide.wisatas.each do |wisata|
+                  .col-sm-4
+                    = image_tag(wisata.foto, class: "img-responsive", style: "width: 112px; height:85px;")
+                    h5.text-center
+                      =link_to wisata.nama, wisata
+        
+        
+        
+    .col-md-7
+      .panel.panel-default.panel-review.panel-review-profile style="margin-top:0px;"
+        - if user_signed_in?
+          = simple_form_for(@review, url: guide_reviews_path(@guide)) do |f|
+            = f.error_notification
+            = f.hidden_field :guide_id, value: @guide.id
+            .form-inputs
+              = f.input :content
+            .form-inputs
+              = f.input :foto
+            .form-actions
+              = f.button :submit, class: "btn btn-info "
+        br
+
+        .panel-heading
+          h3.panel-title
+            | Review #{@guide.nama}
+        .panel-body
+          - @guide.reviews.reverse.each do |review|
+            = render review

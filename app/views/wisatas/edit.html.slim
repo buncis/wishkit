@@ -1,4 +1,9 @@
-h1 Editing Wisata
-= render 'form'
-= link_to 'Show', @wisata
-= link_to 'Back', wisatas_path
+.row
+  .col-md-6.col-md-offset-3
+    .panel.panel-default.panel-v1
+      .panel-heading
+        h4.panel-title Edit Wisata
+      .panel-body
+        = render 'form'
+        = link_to 'Show ', @wisata
+        = link_to ' Back', wisatas_path

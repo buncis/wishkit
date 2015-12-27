@@ -1,14 +1,17 @@
-.container
+.container.container-profile
+  h4.text-center
+    | Profile Traveler
+  hr style="margin-bottom: 20px;"
   .col-md-4
     .row.row-profile
       .col-md-5
-          = image_tag(@user.foto, class: "img-responsive")
+        = image_tag(@user.foto, class: "img-responsive")
       .col-md-7
-        h5.nama
+        h4.nama
           = @user.nama
-        h6.username
+        h5.username
           | @#{@user.username}
-        h6.like-comment
+        h5.like-comment
           | Total Review Saya
           br
           span.glyphicon.glyphicon-comment.comment
@@ -17,7 +20,7 @@
       .col-md-12
         .panel.panel-default.panel-bio
           .panel-body.panel-bd-home-bio
-            h6
+            h5 style="font-style: italic;"
               = @user.bio
   .col-md-8
     .panel.panel-default.panel-review.panel-review-profile

@@ -1,8 +1,27 @@
-= simple_form_for(@berita) do |f|
-  = f.error_notification
-  .form-inputs
-    = f.input :title
-    = f.input :content
-    = f.input :foto
-  .form-actions
-    = f.button :submit
+.row
+  .col-md-6.col-md-offset-3
+    .panel.panel-default.panel-v-berita
+      .panel-heading
+        h4.panel-title Tambah Berita
+      .panel-body
+        =simple_form_for(@berita) do |f| 
+          .form-group
+            label.col-sm-2.control-label for="inputtitleberita"
+            .col-sm-12
+              =f.input :title, :placeholder => "Judul", :autofocus => true, required: true
+              br
+          .form-group
+            label.col-sm-2.control-label for="inputcontent"
+            .col-sm-12
+              =f.input :content, :placeholder => "Konten", required: true
+          .form-group
+            label.col-sm-2.control-label for="inputFoto"
+            .col-sm-12
+              =f.input :foto
+              br
+          .form-group
+            .col-sm-offset-2.col-sm-10
+              =f.submit "Buat Berita", :class => "btn btn-default pull-right"
+              
+              
+              

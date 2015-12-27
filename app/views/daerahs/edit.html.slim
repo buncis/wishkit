@@ -1,5 +1,9 @@
-h1 Editing Daerah
-= render 'form'
-= link_to 'Show', @daerah
-
-= link_to 'Back', daerahs_path
+.row
+  .col-md-6.col-md-offset-3
+    .panel.panel-default.panel-v-tambahdaerah
+      .panel-heading
+        h4.panel-title Edit Daerah
+      .panel-body
+        = render 'form'
+        = link_to 'Show ', @daerah
+        = link_to ' Back', daerahs_path

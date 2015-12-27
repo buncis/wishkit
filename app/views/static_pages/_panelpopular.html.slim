@@ -4,14 +4,14 @@
       =link_to 'Popular Location', 'popular-location'
   .panel-body.panel-bd-home-popular
     .row.media
-    -@wisatas.each do |wisata|
+    -@wisatas[0..5].each do |wisata|
       .col-lg-12.col-md-12.col-sm-12.col-xs-12
         .hovereffect
-          = image_tag(wisata.foto, class: "img-responsive center-block", style: "width:300px; height:300px")
+          = image_tag(wisata.foto, class: "img-responsive center-block", style: "width:300px; height:200px")
           .overlay
             h2 = wisata.nama
-            span.glyphicon.glyphicon-thumbs-up.like
-            span.badge 112
+            span.glyphicon.glyphicon-heart style="color:white;"
+              | #{wisata.get_upvotes.size}
             =link_to 'Lihat', wisata, class: "info"
-            span.glyphicon.glyphicon-comment
-            span.badge =wisata.reviews.count
+            span.glyphicon.glyphicon-comment.comment-v1
+              span.badge =wisata.reviews.count

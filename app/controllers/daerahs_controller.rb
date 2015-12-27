@@ -13,7 +13,7 @@ class DaerahsController < ApplicationController
     if params[:kategori_id]
       @wisatas = @daerah.wisatas.where(kategori_id: params[:kategori_id])
     else
-      @wisatas = @daerah.wisatas
+      @wisatas = @daerah.wisatas.order(:cached_votes_total => :desc)
     end
   end
 

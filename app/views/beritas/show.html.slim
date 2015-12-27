@@ -1,13 +1,12 @@
-p#notice= notice
-p
-  strong Title:
-  = @berita.title
-p
-  strong Content:
-  = @berita.content
-p
-  strong Foto:
-  = @berita.foto
-= link_to 'Edit', edit_berita_path(@berita)
-
-= link_to 'Back', beritas_path
+.container.container-custom1 style="margin-top:20px;" 
+  .row
+    .col-md-12.page-daerah
+      .panel.panel-default
+        .panel-heading
+          .panel-title
+            = @berita.title
+        .panel-body
+          = image_tag(@berita.foto, class: "img-responsive center-block" )
+          p style="text-align:justify;"
+            = simple_format(@berita.content)
+              

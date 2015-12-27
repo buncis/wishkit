@@ -1,6 +1,3 @@
-script src="//maps.google.com/maps/api/js?v=3.18&sensor=false&client=&key=&libraries=geometry&language=&hl=&region=" type='text/javascript'
-script src="//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js" type='text/javascript'
-
 .container
   header.business-header style= 'background: url("#{@wisata.foto}") center center no-repeat scroll;'
     .row
@@ -8,9 +5,13 @@ script src="//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclust
         .nama_rating
           h1.tagline.-bottom style=("margin-left:20px") =@wisata.nama
           .ratingg
-            span.glyphicon.glyphicon-heart style=("color:white; font-size:30px;  margin-left:20px;")
-            span.badge style=("font-size:20px;")
-              | 76
+            = link_to like_wisata_path(@wisata), method: :put do
+              span.glyphicon.glyphicon-heart style="color: white; font-size:30px; margin-left: 20px;"
+                | #{@wisata.get_upvotes.size}
+            = link_to dislike_wisata_path(@wisata), method: :put do
+              span.glyphicon.glyphicon-heart-empty style="color: white; font-size:30px; margin-left: 20px;"
+                | #{@wisata.get_downvotes.size}
+
             
 .container
   hr
@@ -26,7 +27,7 @@ script src="//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclust
       address
         p.glyphicon.glyphicon-earphone title="Phone"
         |  #{@wisata.telp}
-      .row
+      .row style="margin-left:0px;"
         h2
           | Available Guide
         = render 'guide_form' if guide_signed_in?
@@ -40,7 +41,7 @@ script src="//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclust
       .row
         - @wisata.daerah.wisatas.each do |wisata|
           .col-xs-3
-            =image_tag (wisata.foto), {:class => "img-responsive"} 
+            =image_tag (wisata.foto), {:class => "img-responsive", style: "width:140; height:80px;"} 
             p
               =link_to wisata.nama, wisata
     .col-sm-5.wisata-review
@@ -54,17 +55,9 @@ script src="//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclust
           .form-inputs
             = f.input :foto
           .form-actions
-            = f.button :submit
+            = f.button :submit, class: "btn btn-info"
         br    
       - if @wisata.reviews.any?
           = render @reviews
 
 hr
-= link_to like_wisata_path(@wisata), method: :put, class: "btn btn-default btn-sm" do
-  span.glyphicon.glyphicon-chevron-up
-  | Upvote
-  | #{@wisata.get_upvotes.size}
-= link_to dislike_wisata_path(@wisata), method: :put, class: "btn btn-default btn-sm" do
-  span.glyphicon.glyphicon-chevron-down
-    | Downvote
-    | #{@wisata.get_downvotes.size}
