@@ -96,3 +96,20 @@ nav.navbar.navbar-fixed-top
             | or
           li
             =link_to 'Guide', new_guide_session_path
+            
+        li.dropdown
+          a.dropdown-toggle href="#" data-toggle="dropdown" role="button" 
+           span.glyphicon.glyphicon-option-vertical style=("font-size: 20px;") 
+          ul.dropdown-menu.dropdown-kategori 
+            li.dropdown-header
+
+              li
+                = link_to 'Bantuan Penggunaan', 'help'
+              li
+                = link_to 'Saran', new_saran_path  
+              li
+                = link_to 'Tentang Wishkit', 'about'
+              li
+                = link_to 'Kebijakan Privasi', 'privacy'
+            
+            

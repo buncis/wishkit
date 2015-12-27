@@ -2,7 +2,7 @@
 .review-side
   .row
     .col-sm-2
-      = image_tag(review.user.foto, class: "img-responsive")   
+      = image_tag(review.user.foto, class: "img-responsive", style: "height:67px; width: 67px;")   
     .col-sm-10 style="padding-left: 0px; margin-left:-10px;"
       .col-sm-8.nama-periview 
         =link_to review.user.nama, review.user
@@ -13,7 +13,6 @@
           =link_to '@' +review.wisata.nama, review.wisata if review.wisata
         span
           =link_to ' @' +review.guide.nama, review.guide if review.guide
-        
         .row
           .col-sm-12
             =review.content
@@ -21,4 +20,6 @@
       .col-sm-10.col-sm-offset-2
         section.image-gallery
           figure tabindex="1"
-            =image_tag(review.foto, class: "img-responsive" , :style => "max-height:100px;") if review.foto?
+            =image_tag(review.foto, class: "img-responsive center-block", style: "max-height:100px;") if review.foto?
+
+

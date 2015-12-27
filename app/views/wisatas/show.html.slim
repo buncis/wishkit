@@ -50,15 +50,15 @@
             p
               =link_to wisata.nama, wisata
     .col-sm-5.wisata-review
-    
-      .row
-        - @reviews[0..4].each do |review|
-          .col-md-4
-            .thumbnail
-              =image_tag(review.foto, class: "img-responsive", style: "height: 70px; width: 122px;")
-        .thumbnail
-          = link_to(image_tag('more'), album_wisata_path)
-    
+      - unless @reviews.where("foto IS NOT NULL").count == 0
+        .row
+          - @reviews[0..4].each do |review|
+            .col-md-4
+              .thumbnail
+                =image_tag(review.foto, class: "img-responsive", style: "height: 70px; width: 122px;") if review.foto?      
+          .thumbnail
+            = link_to(image_tag('more'), album_wisata_path)  
+
     
       h2 Review  
       - if user_signed_in?

@@ -13,7 +13,6 @@ class WisatasController < ApplicationController
   
   def album
     @reviews = @wisata.reviews
-    
   end
   
   # GET /wisatas/1
