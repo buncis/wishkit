@@ -72,6 +72,21 @@ nav.navbar.navbar-fixed-top
               li.divider role="separator"
               li
                 = link_to 'sign out', destroy_guide_session_path, method: :delete
+                
+        -elsif admin_signed_in?
+          li.dropdown
+            a.dropdown-toggle href="#" data-toggle="dropdown" role="button" 
+              | Admin
+              span.caret
+            ul.dropdown-menu.dropdown-profile
+              li
+                = link_to 'settings', edit_admin_registration_path
+              li.divider role="separator"
+              li
+                = link_to 'sign out', destroy_admin_session_path, method: :delete
+                
+                
+                
         - else
           li style='padding-top:15px;'
             | Login as

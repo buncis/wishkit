@@ -1,4 +1,4 @@
--if @wisatas.count == 0
-  = render 'wisatas/blanksearch'
-- @wisatas.each do |wisata|
-  = render 'wisatas/kontenwisata', :wisata => wisata
+-if admin_signed_in?
+  = render 'wisatas/indexadmin'
+-else
+  = render 'wisatas/index'

@@ -5,9 +5,9 @@ class WisatasController < ApplicationController
   # GET /wisatas.json
   def index
     if params[:search]
-      @wisatas = Wisata.search(params[:search])
+      @wisatas = Wisata.search(params[:search]).order(:cached_votes_up => :desc)
     else
-      @wisatas = Wisata.all
+      @wisatas = Wisata.all.order(:cached_votes_up => :desc)
     end
   end
 

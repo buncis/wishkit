@@ -21,12 +21,17 @@
         = render 'wisatas/peta', wisata: @wisata
       hr
       address
-        p = @wisata.alamat
-        p Harga Tiket Masuk :
-           #{@wisata.harga}
+        p.glyphicon.glyphicon-map-marker 
+          |    #{@wisata.alamat}
+      address
+        p.glyphicon.glyphicon-info-sign
+          |    Harga Tiket Masuk : 
+          |    #{@wisata.harga}
       address
         p.glyphicon.glyphicon-earphone title="Phone"
-        |  #{@wisata.telp}
+          |    #{@wisata.telp}
+        h4 style="font-weight: 800;" Deskripsi
+        p.text-justify = @wisata.deskripsi
       .row style="margin-left:0px;"
         h2
           | Available Guide

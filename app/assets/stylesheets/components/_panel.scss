@@ -213,3 +213,33 @@ hr {
     }
   }
 }
+.panel-signup-admin {
+    box-shadow: 0 0px 0px 0px rgba(39, 19, 19, 0.3), 0 -0px 0px 0px rgba(39, 19, 19, 0.3), -12px 0 10px -4px rgba(114, 114, 114, 0.29), 12px 0 10px -4px rgba(114, 114, 114, 0.29);
+  margin-top: 50px;
+  margin-bottom: 222px;
+  .btn {
+    background-color: #c6222f;
+    color: white;
+    font-weight: 800;
+    &:hover,
+    &:focus {
+      color: #c6222f;
+      background-color: white;
+    }
+  }
+  .panel-heading {
+    background-color: #6AAFD8;
+    .panel-title {
+      font-weight: 800;
+      color: white;
+    }
+  }
+  .panel-body {
+    .form-group {
+      .link-login {
+        float: left;
+      }
+    }
+  }
+
+}

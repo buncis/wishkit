@@ -2,25 +2,10 @@
   .col-md-6.col-md-offset-3
     .panel.panel-default.panel-v1
       .panel-heading
-        h4.panel-title Edit User
+        h4.panel-title Edit Admin
       .panel-body
         =form_for(resource, as: resource_name, url: registration_path(resource_name), class: "form-horizontal", html: { method: :put }) do |f| 
             =devise_error_messages!  
-            .form-group
-              label.col-sm-5.control-label for="inputNama"  Nama
-              .col-sm-7
-                 =f.text_field :nama, :class => "form-control", :autofocus => true, :required => true 
-                 br
-            .form-group
-              label.col-sm-5.control-label for="inputUsername"  Username
-              .col-sm-7
-                =f.text_field :username, :class => "form-control", :required => true 
-                br         
-            .form-group
-              label.col-sm-5.control-label for="inputUsername"  Biodata
-              .col-sm-7
-                =f.text_area :bio, :class => "form-control", :required => true 
-                br             
             .form-group
               label.col-sm-5.control-label for="inputEmail"  Email
               .col-sm-7
@@ -49,14 +34,11 @@
                 =f.password_field :password_confirmation, :autocomplete => "off", :class => "form-control", required: false
                 br
             .form-group
-              label.col-sm-5.control-label for="inputFoto"  Foto
-              .col-sm-7
-                 =f.file_field :foto
-                 br
-            .form-group
               .col-sm-12
                 =f.submit "Update", :class => "btn btn-default pull-right"
             h3 Cancel my account
             p
               | Unhappy? #{link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
             = link_to "Back", :back
+
+              
