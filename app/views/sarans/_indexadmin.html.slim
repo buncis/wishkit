@@ -1,0 +1,22 @@
+#notice = notice 
+.row.table-custom
+  .col-xs-12
+    .table-responsive
+      table.table.table-bordered.table-hover
+        h3.text-center
+          | Daftar Saran Pengguna
+        thead
+          tr
+            th.text-center Nama
+            th.text-center Email
+            th.text-center Pesan
+            th.text-center colspan="3" Action
+        tbody
+          - @sarans.each do |saran|
+            tr
+              td = saran.nama
+              td = saran.email
+              td = saran.pesan
+              td.text-center = link_to 'Show', saran, class: "btn btn-default"
+              td.text-center = link_to 'Edit', edit_saran_path(saran), class: "btn btn-default"
+              td.text-center = link_to 'Destroy', saran, method: :delete, data:   {confirm: 'Are you sure?'}, class: "btn btn-default"          

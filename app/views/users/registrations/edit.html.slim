@@ -32,7 +32,7 @@
             .form-group
               label.col-sm-5.control-label for="inputPassword_Confirmation"  Current Password
               .col-sm-7
-                =f.password_field :current_password, hint: "we need your current password to confirm your changes", required: true
+                =f.password_field :current_password, :class => "form-control", hint: "we need your current password to confirm your changes", required: true
                 br
                 br
             .form-group

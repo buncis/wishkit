@@ -72,6 +72,21 @@ nav.navbar.navbar-fixed-top
               li.divider role="separator"
               li
                 = link_to 'sign out', destroy_guide_session_path, method: :delete
+                
+        -elsif admin_signed_in?
+          li.dropdown
+            a.dropdown-toggle href="#" data-toggle="dropdown" role="button" 
+              | Admin
+              span.caret
+            ul.dropdown-menu.dropdown-profile
+              li
+                = link_to 'settings', edit_admin_registration_path
+              li.divider role="separator"
+              li
+                = link_to 'sign out', destroy_admin_session_path, method: :delete
+                
+                
+                
         - else
           li style='padding-top:15px;'
             | Login as
@@ -81,3 +96,20 @@ nav.navbar.navbar-fixed-top
             | or
           li
             =link_to 'Guide', new_guide_session_path
+            
+        li.dropdown
+          a.dropdown-toggle href="#" data-toggle="dropdown" role="button" 
+           span.glyphicon.glyphicon-option-vertical style=("font-size: 20px;") 
+          ul.dropdown-menu.dropdown-kategori 
+            li.dropdown-header
+
+              li
+                = link_to 'Bantuan Penggunaan', help_path
+              li
+                = link_to 'Saran', new_saran_path  
+              li
+                = link_to 'Tentang Wishkit', about_path
+              li
+                = link_to 'Kebijakan Privasi', privacy_path
+            
+            

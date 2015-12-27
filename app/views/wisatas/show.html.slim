@@ -6,10 +6,10 @@
           h1.tagline.-bottom style=("margin-left:20px") =@wisata.nama
           .ratingg
             = link_to like_wisata_path(@wisata), method: :put do
-              span.glyphicon.glyphicon-heart style="color: white; font-size:30px; margin-left: 20px;"
+              span.icon-heart style="color: white; font-size:30px; margin-left: 20px;"
                 | #{@wisata.get_upvotes.size}
             = link_to dislike_wisata_path(@wisata), method: :put do
-              span.glyphicon.glyphicon-heart-empty style="color: white; font-size:30px; margin-left: 20px;"
+              span.icon-heart-broken style="color: white; font-size:30px; margin-left: 20px;"
                 | #{@wisata.get_downvotes.size}
 
             
@@ -21,12 +21,17 @@
         = render 'wisatas/peta', wisata: @wisata
       hr
       address
-        p = @wisata.alamat
-        p Harga Tiket Masuk :
-           #{@wisata.harga}
+        p.glyphicon.glyphicon-map-marker 
+          |    #{@wisata.alamat}
+      address
+        p.glyphicon.glyphicon-info-sign
+          |    Harga Tiket Masuk : 
+          |    #{@wisata.harga}
       address
         p.glyphicon.glyphicon-earphone title="Phone"
-        |  #{@wisata.telp}
+          |    #{@wisata.telp}
+        h4 style="font-weight: 800;" Deskripsi
+        p.text-justify = @wisata.deskripsi
       .row style="margin-left:0px;"
         h2
           | Available Guide
@@ -45,6 +50,16 @@
             p
               =link_to wisata.nama, wisata
     .col-sm-5.wisata-review
+      - unless @reviews.where("foto IS NOT NULL").count == 0
+        .row
+          - @reviews[0..4].each do |review|
+            .col-md-4
+              .thumbnail
+                =image_tag(review.foto, class: "img-responsive", style: "height: 70px; width: 122px;") if review.foto?      
+          .thumbnail
+            = link_to(image_tag('more'), album_wisata_path)  
+
+    
       h2 Review  
       - if user_signed_in?
         = simple_form_for(@review, url: wisata_reviews_path(@wisata)) do |f|

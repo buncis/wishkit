@@ -1,16 +1,20 @@
 class WisatasController < ApplicationController
-  before_action :set_wisata, only: [:show, :edit, :update, :destroy, :like, :dislike]
+  before_action :set_wisata, only: [:show, :edit, :update, :destroy, :like, :dislike, :album]
 
   # GET /wisatas
   # GET /wisatas.json
   def index
     if params[:search]
-      @wisatas = Wisata.search(params[:search])
+      @wisatas = Wisata.search(params[:search]).order(:cached_votes_up => :desc)
     else
-      @wisatas = Wisata.all
+      @wisatas = Wisata.all.order(:cached_votes_up => :desc)
     end
   end
-
+  
+  def album
+    @reviews = @wisata.reviews
+  end
+  
   # GET /wisatas/1
   # GET /wisatas/1.json
   def show

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :sarans
   root 'static_pages#home'
   get 'help'    => 'static_pages#help'
   get 'about'   => 'static_pages#about'
@@ -15,8 +16,10 @@ Rails.application.routes.draw do
     member do
       put "like", to: "wisatas#like"
       put "dislike", to: "wisatas#dislike"
+      get 'album'
     end
     resources :reviews, only: [:create, :destroy]
+    
   end
   devise_for :users
   resources :users, only: [:show, :index]

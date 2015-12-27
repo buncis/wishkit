@@ -1,8 +1,8 @@
 class StaticPagesController < ApplicationController
   def home
-    @reviews=Review.order('created_at DESC').page(params[:page]).per_page(5)
+    @reviews=Review.order('created_at DESC').page(params[:page]).per_page(10)
     @beritas=Berita.all
-    @wisatas=Wisata.all.order(:cached_votes_total => :desc)
+    @wisatas=Wisata.all.order(:cached_votes_up => :desc)
   end
 
   def help
@@ -18,7 +18,7 @@ class StaticPagesController < ApplicationController
   end
 
   def popular_location
-    @wisatas = Wisata.all.order(:cached_votes_total => :desc)
+    @wisatas = Wisata.all.order(:cached_votes_up => :desc)
   end
 
 end
