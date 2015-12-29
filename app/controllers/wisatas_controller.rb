@@ -5,6 +5,13 @@ class WisatasController < ApplicationController
   # GET /wisatas.json
   def index
     @wisatas = Wisata.all.order(:cached_votes_total => :desc)
+#
+#    if params[:search]
+#      @wisatas = Wisata.search(params[:search]).order("created_at DESC").page(params[:page]).per_page(10)
+#    else
+#      @wisatas = Wisata.order('created_at DESC').page(params[:page]).per_page(10)
+#    end
+
   end
 
   # GET /wisatas/1
